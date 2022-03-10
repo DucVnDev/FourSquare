@@ -53,12 +53,15 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
         print("ID place tableView: \(placefsqID)")
         fetchPlacePhoto(placeId: placefsqID)
 
-        let urlImagePlaceString : String = "\(self.placePhotos[0].placePhotoPrefix)120x120\(self.placePhotos[0].suffix)"
+        let prefix: String = self.placePhotos.first?.placePhotoPrefix ?? ""
+        let suffix: String = self.placePhotos.first?.suffix ?? ""
+        //print(suffix ?? "")
+       let urlImagePlaceString = "\(self.placePhotos.first?.placePhotoPrefix)120x120\(self.placePhotos.first?.suffix)"
         print(urlImagePlaceString)
 
 
         placeTableViewCell.titleLabel.text = item.titleLabelText
-        placeTableViewCell.placeImageView.sd_setImage(with: URL(string: urlImagePlaceString))
+       // placeTableViewCell.placeImageView.sd_setImage(with: URL(string: urlImagePlaceString))
         placeTableViewCell.subTitleLabel.text = item.categoryNameLabelText.first?.name
         placeTableViewCell.distanceLabel.text = "\(item.distanceLabelText)m  \(item.locationLabelText)"
         placeTableViewCell.descLabel.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame"
@@ -80,9 +83,9 @@ extension ListSearchViewController {
             .validate() // added validation
             .responseDecodable(of: Place.self) { response in
                 guard let place = response.value else { return }
-                self.items = place.results
-                self.resultPlace = place.results
                 DispatchQueue.main.async {
+                    self.items = place.results
+                    self.resultPlace = place.results
                     self.tableView.reloadData()
                 }
             }
@@ -98,9 +101,13 @@ extension ListSearchViewController {
             .validate()
             .response {  (responseData) in
                 guard let data = responseData.data else { return }
+                
                 do {
                     let placePhoto = try JSONDecoder().decode([PlacePhotoElement].self, from: data)
-                    self.placePhotos = placePhoto
+                    DispatchQueue.main.async {
+                        self.placePhotos = placePhoto
+                       // self.tableView.reloadData()
+                    }
                 } catch {
                     print("Error")
                 }
