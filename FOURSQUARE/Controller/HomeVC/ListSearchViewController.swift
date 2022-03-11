@@ -14,8 +14,6 @@ class ListSearchViewController: UIViewController {
 
     var resultPlace : [Result] = []
 
-    let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                .accept("application/json")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +40,9 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
         let item = resultPlace[indexPath.row]
 
-        //let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, title: item.name, subtitle: "Demo", distance: 10.0, locality: "", desc: "", point: "9", imgURL: "")
+        let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", point: "9", imgURL: "")
 
-        //placeTableViewCell.updateWith(cellViewModel)
-
-        placeTableViewCell.titleLabel.text = item.name
-        placeTableViewCell.subTitleLabel.text = item.categories.first?.name
+        placeTableViewCell.updateWith(cellViewModel)
 
         return placeTableViewCell
 
@@ -60,10 +55,10 @@ extension ListSearchViewController {
     //MARK: -func fetchNearByPlaces()
     func fetchNearByPlaces(){
         let parameters = ["ll" : "16.0470,108.2062"] //Lat, Long of Da Nang
-        //let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                   // .accept("application/json")]
+        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                    .accept("application/json")]
 
-        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: self.headers)
+        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: headers)
             .validate() // added validation
             .responseDecodable(of: Place.self) { response in
                 guard let place = response.value else { return }
