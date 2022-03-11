@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		170C20E227D78F8400F84431 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 170C20E127D78F8400F84431 /* SDWebImage */; };
 		170C20E427D78F8400F84431 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 170C20E327D78F8400F84431 /* SDWebImageMapKit */; };
-		172B75EB27D39E0200FA128B /* Displayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B75EA27D39E0200FA128B /* Displayable.swift */; };
 		172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
@@ -37,7 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		172B75EA27D39E0200FA128B /* Displayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Displayable.swift; sourceTree = "<group>"; };
 		172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotoElement.swift; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		174A1E0327CE872B00CDD3AC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 			children = (
 				174768FB27D353FC00AE1B0A /* Places.swift */,
 				172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */,
-				172B75EA27D39E0200FA128B /* Displayable.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				174A1E0427CE872B00CDD3AC /* Extension.swift in Sources */,
 				17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */,
 				172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */,
-				172B75EB27D39E0200FA128B /* Displayable.swift in Sources */,
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */,
 				174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */,

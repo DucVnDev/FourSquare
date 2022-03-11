@@ -30,29 +30,6 @@ struct Result: Codable {
     }
 }
 
-extension Result: Displayable {
-    var titleLabelText: String {
-        name
-    }
-
-    var categoryNameLabelText: [Category] {
-        categories
-    }
-
-    var distanceLabelText: String {
-        String(distance)
-    }
-
-    var locationLabelText: String {
-        location.locality ?? ""
-    }
-
-//    var subTitleLabelText: String {
-//        <#code#>
-//    }
-
-
-}
 
 // MARK: - Category
 struct Category: Codable {
