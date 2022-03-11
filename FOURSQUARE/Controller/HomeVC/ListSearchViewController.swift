@@ -14,6 +14,9 @@ class ListSearchViewController: UIViewController {
 
     var resultPlace : [Result] = []
 
+    let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                .accept("application/json")]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,9 +42,12 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
         let item = resultPlace[indexPath.row]
 
-        let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, title: item.name, subtitle: "Demo", distance: 10.0, locality: "", desc: "", point: "9", imgURL: "")
+        //let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, title: item.name, subtitle: "Demo", distance: 10.0, locality: "", desc: "", point: "9", imgURL: "")
 
-        placeTableViewCell.updateWith(cellViewModel)
+        //placeTableViewCell.updateWith(cellViewModel)
+
+        placeTableViewCell.titleLabel.text = item.name
+        placeTableViewCell.subTitleLabel.text = item.categories.first?.name
 
         return placeTableViewCell
 
@@ -53,11 +59,11 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension ListSearchViewController {
     //MARK: -func fetchNearByPlaces()
     func fetchNearByPlaces(){
-        let parameters = ["ll" : "16.047079%2C108.206230"] //Lat, Long of Da Nang
-        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                    .accept("application/json")]
+        let parameters = ["ll" : "16.0470,108.2062"] //Lat, Long of Da Nang
+        //let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                   // .accept("application/json")]
 
-        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: headers)
+        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: self.headers)
             .validate() // added validation
             .responseDecodable(of: Place.self) { response in
                 guard let place = response.value else { return }

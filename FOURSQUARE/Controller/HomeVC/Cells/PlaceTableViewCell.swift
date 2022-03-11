@@ -37,9 +37,9 @@ class PlaceTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//    }
 
     func updateWith(_ viewModel:PlaceTableViewCellViewModel) {
         titleLabel.text = viewModel.title
