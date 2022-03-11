@@ -49,17 +49,6 @@ class PlaceTableViewCell: UITableViewCell {
 
         fetchPlacePhoto(placeId: viewModel.fsqID)
         
-        let prefix: String? = self.placePhoto.first?.placePhotoPrefix
-        let suffix: String? = self.placePhoto.first?.suffix
-        if prefix != nil && suffix != nil {
-            self.imgURLString = "\(prefix!)120x120\(suffix!)"
-            print("Link Image Place with: \(viewModel.fsqID)")
-            print(self.imgURLString)
-        } else  {
-            self.imgURLString = "https://static5.depositphotos.com/1020804/405/i/950/depositphotos_4058882-stock-photo-ripe-red-apple-with-a.jpg"
-            print("No link Image Place with: \(viewModel.fsqID)")
-        }
-
         placeImageView.sd_setImage(with: URL(string: imgURLString))
         titleLabel.text = viewModel.title
         subTitleLabel.text = viewModel.subtitle
@@ -68,12 +57,12 @@ class PlaceTableViewCell: UITableViewCell {
         pointLabel.text = viewModel.point
     }
 
+    
     func fetchPlacePhoto(placeId: String){
 
         let urlString: String = "https://api.foursquare.com/v3/places/\(placeId)/photos"
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
                                     .accept("application/json")]
-
         AF.request(urlString,
                    method: .get,
                    headers: headers)
@@ -82,17 +71,16 @@ class PlaceTableViewCell: UITableViewCell {
                 guard let data = responseData.value else { return }
                 DispatchQueue.main.async {
                     self.placePhoto = data
-//                    let prefix: String? = data.first?.placePhotoPrefix
-//                    let suffix: String? = data.first?.suffix
-//
-//                    if prefix != nil && suffix != nil {
-//                        self.imgURLString = "\(prefix!)120x120\(suffix!)"
-//                        print("Link Image Place with: \(placeId)")
-//                        print(self.imgURLString)
-//                    } else  {
-//                        self.imgURLString = "https://static5.depositphotos.com/1020804/405/i/950/depositphotos_4058882-stock-photo-ripe-red-apple-with-a.jpg"
-//                        print("No link Image Place with: \(placeId)")
-//                    }
+                    let prefix: String? = data.first?.placePhotoPrefix
+                    let suffix: String? = data.first?.suffix
+                    if prefix != nil && suffix != nil {
+                        self.imgURLString = "\(prefix!)120x120\(suffix!)"
+                        print("Link Image Place with: \(placeId)")
+                        print(self.imgURLString)
+                    } else  {
+                        self.imgURLString = "https://static5.depositphotos.com/1020804/405/i/950/depositphotos_4058882-stock-photo-ripe-red-apple-with-a.jpg"
+                        print("No link Image Place with: \(placeId)")
+                    }
                 }
             }
     }
