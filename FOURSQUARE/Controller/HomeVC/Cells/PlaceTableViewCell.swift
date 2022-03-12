@@ -78,14 +78,15 @@ class PlaceTableViewCell: UITableViewCell {
                             .response{ response in
                                 switch response.result {
                                     case .success(let responseData):
-                                        self.placeImageView.image = UIImage(data: responseData!, scale:1)
+                                        self.placeImageView.image = UIImage(data: responseData!, scale: 1)
                                     case .failure(let error):
                                         print("error--->",error)
                                         print(" No link Image Place with: \(fsqID) - \(titlePlace)")
                                 }
                             }
                     } else  {
-                        print("No link ImagePlace with: \(fsqID) - \(titlePlace), ImagePlace with use Image Local Defaut")
+                        print("No link ImagePlace: \(fsqID) - \(titlePlace), ImagePlace use Local Image Defaut")
+                        self.placeImageView.image = UIImage(named: "Banner2.jpeg")
                     }
                 }
             }
