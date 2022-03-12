@@ -11,6 +11,7 @@ import SDWebImage
 
 struct PlaceTableViewCellViewModel {
     var fsqID: String
+    var indexPath: String
     var title: String
     var subtitle: String
     var distance: Double
@@ -31,55 +32,85 @@ class PlaceTableViewCell: UITableViewCell {
     @IBOutlet weak var pointLabel: UILabel!
 
     var placePhoto: [PlacePhotoElement] = []
-    var imgURLString: String = ""
+    var placeTip: [PlaceTipElement] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        commonInit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
 
-    //    override func prepareForReuse() {
-    //        super.prepareForReuse()
-    //    }
-
+    func commonInit(){
+        placeImageView.layer.cornerRadius = 8
+    }
     func updateWith(_ viewModel:PlaceTableViewCellViewModel) {
 
-        fetchPlacePhoto(placeId: viewModel.fsqID)
-        
-        placeImageView.sd_setImage(with: URL(string: imgURLString))
-        titleLabel.text = viewModel.title
+        fetchPlacePhoto(fsqID: viewModel.fsqID, titlePlace: viewModel.title)
+        fetchPlaceTip(fsqID: viewModel.fsqID, titlePlace: viewModel.title)
+
+        titleLabel.text = "\(viewModel.indexPath). \(viewModel.title)"
         subTitleLabel.text = viewModel.subtitle
         distanceLabel.text = "\(viewModel.distance)m  \(viewModel.locality)"
-        descLabel.text = viewModel.desc
         pointLabel.text = viewModel.point
     }
 
-    
-    func fetchPlacePhoto(placeId: String){
 
-        let urlString: String = "https://api.foursquare.com/v3/places/\(placeId)/photos"
+    func fetchPlacePhoto(fsqID: String, titlePlace: String){
+
+        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/photos"
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
                                     .accept("application/json")]
         AF.request(urlString,
                    method: .get,
                    headers: headers)
             .validate()
-            .responseDecodable(of: [PlacePhotoElement].self) { (responseData) in
+            .responseDecodable(of: [PlacePhotoElement].self) { responseData in
                 guard let data = responseData.value else { return }
                 DispatchQueue.main.async {
                     self.placePhoto = data
                     let prefix: String? = data.first?.placePhotoPrefix
                     let suffix: String? = data.first?.suffix
                     if prefix != nil && suffix != nil {
-                        self.imgURLString = "\(prefix!)120x120\(suffix!)"
-                        print("Link Image Place with: \(placeId)")
-                        print(self.imgURLString)
+                        AF.request( "\(prefix!)120x120\(suffix!)",method: .get)
+                            .response{ response in
+                                switch response.result {
+                                    case .success(let responseData):
+                                        self.placeImageView.image = UIImage(data: responseData!, scale:1)
+                                    case .failure(let error):
+                                        print("error--->",error)
+                                        print(" No link Image Place with: \(fsqID) - \(titlePlace)")
+                                }
+                            }
                     } else  {
-                        self.imgURLString = "https://static5.depositphotos.com/1020804/405/i/950/depositphotos_4058882-stock-photo-ripe-red-apple-with-a.jpg"
-                        print("No link Image Place with: \(placeId)")
+                        print("No link ImagePlace with: \(fsqID) - \(titlePlace), ImagePlace with use Image Local Defaut")
+                    }
+                }
+            }
+    }
+
+    func fetchPlaceTip(fsqID: String, titlePlace: String){
+
+        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/tips"
+        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                    .accept("application/json")]
+        AF.request(urlString,
+                   method: .get,
+                   headers: headers)
+            .validate()
+            .responseDecodable(of: [PlaceTipElement].self) { (responseData) in
+                guard let data = responseData.value else { return }
+                DispatchQueue.main.async {
+                    self.placeTip = data
+                    if data.first?.text != nil {
+                        self.descLabel.text = data.first?.text
+                        //print("Have Place Tips with: \(fsqID)")
+                    } else {
+                        self.descLabel.text  = ""
+                        print("No Place Tips with: \(fsqID) - \(titlePlace)")
+                        return
                     }
                 }
             }

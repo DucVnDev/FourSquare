@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		170C20E227D78F8400F84431 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 170C20E127D78F8400F84431 /* SDWebImage */; };
 		170C20E427D78F8400F84431 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 170C20E327D78F8400F84431 /* SDWebImageMapKit */; };
+		1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */; };
 		172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
@@ -23,7 +24,6 @@
 		174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */; };
 		174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1D27CF342D00CDD3AC /* MapSearchViewController.swift */; };
 		174A1E2027CF342D00CDD3AC /* MapSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1E27CF342D00CDD3AC /* MapSearchViewController.xib */; };
-		174A1E2427CF38B100CDD3AC /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E2327CF38B100CDD3AC /* Place.swift */; };
 		174A1E2827CF39AB00CDD3AC /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E2627CF39AB00CDD3AC /* PlaceTableViewCell.swift */; };
 		174A1E2927CF39AB00CDD3AC /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */; };
 		174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */; };
@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTipElement.swift; sourceTree = "<group>"; };
 		172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotoElement.swift; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		174A1E0327CE872B00CDD3AC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -49,7 +50,6 @@
 		174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSearchViewController.xib; sourceTree = "<group>"; };
 		174A1E1D27CF342D00CDD3AC /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
 		174A1E1E27CF342D00CDD3AC /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchViewController.xib; sourceTree = "<group>"; };
-		174A1E2327CF38B100CDD3AC /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		174A1E2627CF39AB00CDD3AC /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceInfoViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 			children = (
 				174768FB27D353FC00AE1B0A /* Places.swift */,
 				172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */,
+				1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -117,17 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				1747690027D354D700AE1B0A /* Networking */,
-				174A1E2227CF38A000CDD3AC /* DummyData */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		174A1E2227CF38A000CDD3AC /* DummyData */ = {
-			isa = PBXGroup;
-			children = (
-				174A1E2327CF38B100CDD3AC /* Place.swift */,
-			);
-			path = DummyData;
 			sourceTree = "<group>";
 		};
 		174A1E2527CF397500CDD3AC /* Cells */ = {
@@ -323,8 +315,8 @@
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */,
 				174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */,
+				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
 				174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */,
-				174A1E2427CF38B100CDD3AC /* Place.swift in Sources */,
 				174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */,
 				17C44DF427CE3B2B009EDF46 /* HomeViewController.swift in Sources */,
 				174A1E2827CF39AB00CDD3AC /* PlaceTableViewCell.swift in Sources */,

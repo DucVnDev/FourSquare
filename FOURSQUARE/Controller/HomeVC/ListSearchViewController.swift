@@ -40,7 +40,7 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
         let item = resultPlace[indexPath.row]
 
-        let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", point: "9", imgURL: "")
+        let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", point: "9", imgURL: "")
 
         placeTableViewCell.updateWith(cellViewModel)
 
