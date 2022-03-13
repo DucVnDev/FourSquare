@@ -48,9 +48,8 @@ class PlaceTableViewCell: UITableViewCell {
     }
     func updateWith(_ viewModel:PlaceTableViewCellViewModel) {
 
-        fetchPlacePhoto(fsqID: viewModel.fsqID, titlePlace: viewModel.title)
-        fetchPlaceTip(fsqID: viewModel.fsqID, titlePlace: viewModel.title)
-
+        fetchPlacePhoto(fsqID: viewModel.fsqID, titlePlace: viewModel.title) //placeImageView
+        fetchPlaceTip(fsqID: viewModel.fsqID, titlePlace: viewModel.title) //value: descLabel
         titleLabel.text = "\(viewModel.indexPath). \(viewModel.title)"
         subTitleLabel.text = viewModel.subtitle
         distanceLabel.text = "\(viewModel.distance)m  \(viewModel.locality)"
@@ -69,21 +68,12 @@ class PlaceTableViewCell: UITableViewCell {
             .validate()
             .responseDecodable(of: [PlacePhotoElement].self) { responseData in
                 guard let data = responseData.value else { return }
+                self.placePhoto = data
+                let prefix: String? = data.first?.placePhotoPrefix
+                let suffix: String? = data.first?.suffix
                 DispatchQueue.main.async {
-                    self.placePhoto = data
-                    let prefix: String? = data.first?.placePhotoPrefix
-                    let suffix: String? = data.first?.suffix
                     if prefix != nil && suffix != nil {
-                        AF.request( "\(prefix!)120x120\(suffix!)",method: .get)
-                            .response{ response in
-                                switch response.result {
-                                    case .success(let responseData):
-                                        self.placeImageView.image = UIImage(data: responseData!, scale: 1)
-                                    case .failure(let error):
-                                        print("error--->",error)
-                                        print(" No link Image Place with: \(fsqID) - \(titlePlace)")
-                                }
-                            }
+                        self.placeImageView.sd_setImage(with: URL(string: "\(prefix!)120x120\(suffix!)"))
                     } else  {
                         print("No link ImagePlace: \(fsqID) - \(titlePlace), ImagePlace use Local Image Defaut")
                         self.placeImageView.image = UIImage(named: "Banner2.jpeg")
@@ -103,18 +93,15 @@ class PlaceTableViewCell: UITableViewCell {
             .validate()
             .responseDecodable(of: [PlaceTipElement].self) { (responseData) in
                 guard let data = responseData.value else { return }
+                self.placeTip = data
                 DispatchQueue.main.async {
-                    self.placeTip = data
                     if data.first?.text != nil {
                         self.descLabel.text = data.first?.text
-                        //print("Have Place Tips with: \(fsqID)")
                     } else {
                         self.descLabel.text  = ""
                         print("No Place Tips with: \(fsqID) - \(titlePlace)")
-                        return
                     }
                 }
             }
     }
-
 }
