@@ -22,8 +22,17 @@ class ListSearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
 
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 145
+
+        commonInit()
         fetchNearByPlaces()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+
+        }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
 extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {

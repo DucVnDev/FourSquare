@@ -45,6 +45,9 @@ class PlaceTableViewCell: UITableViewCell {
 
     func commonInit(){
         placeImageView.layer.cornerRadius = 8
+        descLabel.sizeToFit()
+        descLabel.numberOfLines = 0
+
     }
     func updateWith(_ viewModel:PlaceTableViewCellViewModel) {
 
