@@ -12,6 +12,7 @@ struct Place: Codable {
 
 // MARK: - Result
 struct Result: Codable {
+    var imgURLString: String?
     let fsqID: String
     let categories: [Category]
     let chains: [JSONAny]
@@ -27,6 +28,11 @@ struct Result: Codable {
         case categories, chains, distance, geocodes, location, name
         case relatedPlaces = "related_places"
         case timezone
+        case imgURLString
+    }
+
+    mutating func updateImgURLString(_ urlString: String?) {
+        self.imgURLString = urlString
     }
 }
 

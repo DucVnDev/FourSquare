@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="PlaceDetailCollectionReusableView" customModule="FOURSQUARE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="311"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Od-IE-Fbw">
+                    <rect key="frame" x="0.0" y="44" width="332" height="267"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="OZX-sZ-Yyy">
+                    <rect key="frame" x="0.0" y="44" width="332" height="164"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OZX-sZ-Yyy" secondAttribute="height" multiplier="83:41" id="z5e-vb-ZBv"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-5s-AY3">
+                    <rect key="frame" x="20" y="218" width="194" height="38"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bánh Cuốn Tiến Hưng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xj7-oq-HLg">
+                            <rect key="frame" x="0.0" y="0.0" width="164" height="19.666666666666668"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                            <color key="textColor" name="AccentColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vietnamese Restaurant in Da Nang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTf-ct-Suz">
+                            <rect key="frame" x="0.0" y="23.666666666666657" width="194" height="14.333333333333336"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                            <color key="textColor" systemColor="linkColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="rGI-5s-AY3" secondAttribute="height" multiplier="97:19" id="QHi-5O-QDH"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="apK-fi-xtG">
+                    <rect key="frame" x="20" y="266" width="292" height="35"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSC-A7-jIT">
+                            <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="35"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Info"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGZ-ce-xDs">
+                            <rect key="frame" x="100.66666666666666" y="0.0" width="90.666666666666657" height="35"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Photos"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGt-Rv-JyS">
+                            <rect key="frame" x="201.33333333333334" y="0.0" width="90.666666666666657" height="35"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="filled" title="Tips"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="apK-fi-xtG" secondAttribute="height" multiplier="292:35" id="xug-Ug-7XS"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="OZX-sZ-Yyy" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" id="2i4-Lj-bkb"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="apK-fi-xtG" secondAttribute="bottom" constant="10" id="5K2-av-8nf"/>
+                <constraint firstItem="OZX-sZ-Yyy" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="6WU-0e-xfi"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="apK-fi-xtG" secondAttribute="trailing" constant="20" id="Gj4-zd-QrM"/>
+                <constraint firstItem="8Od-IE-Fbw" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="Qok-dU-KxY"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="8Od-IE-Fbw" secondAttribute="bottom" id="eXi-gG-UgE"/>
+                <constraint firstItem="rGI-5s-AY3" firstAttribute="top" secondItem="OZX-sZ-Yyy" secondAttribute="bottom" constant="10" id="ew4-AP-WNN"/>
+                <constraint firstItem="8Od-IE-Fbw" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" id="fa1-Lp-j6T"/>
+                <constraint firstItem="OZX-sZ-Yyy" firstAttribute="trailing" secondItem="VXr-Tz-HHm" secondAttribute="trailing" id="gjD-nN-1el"/>
+                <constraint firstItem="apK-fi-xtG" firstAttribute="top" secondItem="rGI-5s-AY3" secondAttribute="bottom" constant="10" id="jaw-Fu-Za3"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="8Od-IE-Fbw" secondAttribute="trailing" id="mxb-vP-lUr"/>
+                <constraint firstItem="rGI-5s-AY3" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="20" id="pk3-Vf-hKV"/>
+                <constraint firstItem="apK-fi-xtG" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="20" id="tA2-uC-XM0"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="OZX-sZ-Yyy" id="wuu-jh-37c"/>
+                <outlet property="infoBtn" destination="OGt-Rv-JyS" id="E3I-8K-aSo"/>
+                <outlet property="photosBtn" destination="fGZ-ce-xDs" id="Umi-Ea-h5k"/>
+                <outlet property="subTitleLabel" destination="NTf-ct-Suz" id="Mq4-yR-tCu"/>
+                <outlet property="tipBtn" destination="OGt-Rv-JyS" id="Pg9-Gh-VQF"/>
+                <outlet property="titleLabel" destination="Xj7-oq-HLg" id="wRr-6n-uqY"/>
+            </connections>
+            <point key="canvasLocation" x="141.58878504672896" y="123.43412526997841"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="banner" width="960" height="589"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
