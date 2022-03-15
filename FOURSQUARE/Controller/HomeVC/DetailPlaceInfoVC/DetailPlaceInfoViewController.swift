@@ -6,20 +6,31 @@
 //
 
 import UIKit
+import Alamofire
+import SDWebImage
+
+struct PlaceDetailViewMode {
+    var id: String
+    var name: String
+    var address: String
+    var category: String
+}
 
 class DetailPlaceInfoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var infoDetailPlace: [InfoDummyData] = InfoDummyData.getDummyData()
+
     var photoDetailPlace: [String] = ["placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder"]
     var tipDetailPlace: [String] = ["Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame"]
+
+    var infoDetailPlace = PlaceDetailViewMode(id: "", name: "", address: "", category: "")
+    //var imgURLBannerString: UIImageView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail VC"
-
         collectionView.delegate = self
         collectionView.dataSource = self
 
@@ -61,7 +72,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoPlaceCell", for: indexPath) as! InfoPlaceCell
 
-                let item = infoDetailPlace[indexPath.item]
+                let item = infoDetailPlace
                 cell.addressLabel.text = item.address
                 cell.categoryLabel.text = item.category
                 return cell
@@ -91,15 +102,9 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
             case 0:
-                return CGSize(width: collectionView.frame.width, height: 264)
-            case 1:
-                return CGSize(width: collectionView.frame.width, height: 40)
-            case 2:
-                return CGSize(width: collectionView.frame.width, height: 40)
-            case 3:
-                return CGSize(width: collectionView.frame.width, height: 40)
+                return CGSize(width: collectionView.frame.width, height: 277)
             default:
-                return CGSize(width: collectionView.frame.width, height: 40)
+                return CGSize(width: collectionView.frame.width, height: 36)
         }
     }
 
@@ -109,10 +114,10 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 switch kind {
                     case UICollectionView.elementKindSectionHeader:
                         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView", for: indexPath) as! PlaceDetailCollectionReusableView
-                        headerView.frame = CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 264)
-                        headerView.titleLabel.text = "Bánh cuốn trảng bàng"
-                        headerView.subTitleLabel.text = "Vietnamese Restaurent"
-                        headerView.imageView.image = UIImage(named: "banner")
+                        headerView.titleLabel.text = self.infoDetailPlace.name
+                        headerView.subTitleLabel.text = self.infoDetailPlace.category
+                        //headerView.imageView.sd_setImage(with: URL(string: self.imgURLBannerString))
+                        headerView.fetchPhotoWith(fsqID: self.infoDetailPlace.id)
                         return headerView
                     default:
                         fatalError("Unexpected element kind")
@@ -121,11 +126,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 switch kind {
                     case UICollectionView.elementKindSectionHeader:
                         let headerSetionView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell", for: indexPath) as! HeaderSectionPlaceDetailCell
-
-                       //headerSetionView.frame = CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 55)
-
                         headerSetionView.titleLabel.text = "Infomation"
-
                         return headerSetionView
                     default:
                         fatalError("Unexpected element kind")
@@ -134,9 +135,6 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 switch kind {
                     case UICollectionView.elementKindSectionHeader:
                         let headerSetionView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell", for: indexPath) as! HeaderSectionPlaceDetailCell
-
-                       //headerSetionView.frame = CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 55)
-
                         headerSetionView.titleLabel.text = "Photos Place"
                         return headerSetionView
                     default:
@@ -146,9 +144,6 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 switch kind {
                     case UICollectionView.elementKindSectionHeader:
                         let headerSetionView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell", for: indexPath) as! HeaderSectionPlaceDetailCell
-
-                      // headerSetionView.frame = CGRect(x: 0 , y: 0, width: self.view.frame.width, height: 55)
-
                         headerSetionView.titleLabel.text = "Tips Place"
                         return headerSetionView
                     default:
@@ -171,15 +166,15 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         switch section {
             case 0:
-                return UIEdgeInsets(top: 0, left: 0 , bottom: 10, right: 0)
+                return UIEdgeInsets(top: 0, left: 0 , bottom: 0, right: 0)
             case 1:
-                return UIEdgeInsets(top: 5, left: 20 , bottom: 20, right: 20)
+                return UIEdgeInsets(top: 0, left: 20 , bottom: 20, right: 20)
             case 2:
-                return UIEdgeInsets(top: 5, left: 20 , bottom: 20, right: 20)
+                return UIEdgeInsets(top: 10, left: 20 , bottom: 20, right: 20)
             case 3:
-                return UIEdgeInsets(top: 5, left: 20 , bottom: 20, right: 20)
+                return UIEdgeInsets(top: 10, left: 20 , bottom: 20, right: 20)
             default:
-                return UIEdgeInsets(top: 0, left: 0 , bottom: 10, right: 0)
+                return UIEdgeInsets(top: 10, left: 0 , bottom: 10, right: 0)
         }
     }
 
@@ -189,7 +184,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: 0, height: 0)
             case 1:
                 let screenWidth = UIScreen.main.bounds.width - 20 - 20
-                return CGSize(width: screenWidth, height: screenWidth*0.45)
+                return CGSize(width: screenWidth, height: screenWidth*0.44)
             case 2:
                 let screenWidth = UIScreen.main.bounds.width - 20 - 20 - 10
                 return CGSize(width: screenWidth/2, height: screenWidth/2)
@@ -202,29 +197,8 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
-
-
-//DUMMY DAT
-class InfoDummyData {
-    var name: String
-    var category: String
-    var address: String
-
-    init(name: String,category: String, address: String ) {
-        self.name = name
-        self.category = category
-        self.address = name
-    }
-
-    static func getDummyData() -> [InfoDummyData] {
-        var infoPlace: [InfoDummyData] = []
-        for i in 1...3 {
-            let myInfoPlace = InfoDummyData(name: "Name \(i)", category: "category \(i)", address: "address \(i)")
-            infoPlace.append(myInfoPlace)
-        }
-        return infoPlace
-    }
+//API
+extension DetailPlaceInfoViewController {
 }
-
 
 

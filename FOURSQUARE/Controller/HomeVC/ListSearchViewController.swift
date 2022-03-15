@@ -43,9 +43,9 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let item = resultPlace[indexPath.row]
         let vc = DetailPlaceInfoViewController()
-
+        vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

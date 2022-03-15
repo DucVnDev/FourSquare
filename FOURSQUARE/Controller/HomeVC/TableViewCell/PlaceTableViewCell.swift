@@ -41,7 +41,6 @@ class PlaceTableViewCell: UITableViewCell {
         subTitleLabel.text = ""
         distanceLabel.text = ""
         descLabel.text = ""
-        pointLabel.text = ""
     }
 
     func commonInit() {

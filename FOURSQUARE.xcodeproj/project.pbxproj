@@ -14,7 +14,6 @@
 		172DFD1E27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD1C27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift */; };
 		172DFD1F27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD1D27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib */; };
 		172DFD2227DF876A00F261C7 /* InfoPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD2027DF876A00F261C7 /* InfoPlaceCell.swift */; };
-		172DFD2627DF87EC00F261C7 /* CategoryPlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD2527DF87EC00F261C7 /* CategoryPlaceDetail.swift */; };
 		172DFD2927DFAB0D00F261C7 /* PhotoPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD2727DFAB0D00F261C7 /* PhotoPlaceCell.swift */; };
 		172DFD2A27DFAB0D00F261C7 /* PhotoPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD2827DFAB0D00F261C7 /* PhotoPlaceCell.xib */; };
 		172DFD2D27DFB8A500F261C7 /* TipPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD2B27DFB8A500F261C7 /* TipPlaceCell.swift */; };
@@ -52,7 +51,6 @@
 		172DFD1C27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailCollectionReusableView.swift; sourceTree = "<group>"; };
 		172DFD1D27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceDetailCollectionReusableView.xib; sourceTree = "<group>"; };
 		172DFD2027DF876A00F261C7 /* InfoPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlaceCell.swift; sourceTree = "<group>"; };
-		172DFD2527DF87EC00F261C7 /* CategoryPlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPlaceDetail.swift; sourceTree = "<group>"; };
 		172DFD2727DFAB0D00F261C7 /* PhotoPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPlaceCell.swift; sourceTree = "<group>"; };
 		172DFD2827DFAB0D00F261C7 /* PhotoPlaceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoPlaceCell.xib; sourceTree = "<group>"; };
 		172DFD2B27DFB8A500F261C7 /* TipPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPlaceCell.swift; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				174768FB27D353FC00AE1B0A /* Places.swift */,
 				172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */,
 				1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */,
-				172DFD2527DF87EC00F261C7 /* CategoryPlaceDetail.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -364,7 +361,6 @@
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */,
 				174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */,
-				172DFD2627DF87EC00F261C7 /* CategoryPlaceDetail.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
 				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
 				174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */,
