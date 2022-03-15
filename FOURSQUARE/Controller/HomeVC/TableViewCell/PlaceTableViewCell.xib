@@ -47,17 +47,6 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7,8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjf-hD-1sr">
-                        <rect key="frame" x="284" y="9" width="26" height="20"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="8xb-Th-Pn8"/>
-                            <constraint firstAttribute="width" secondItem="Hjf-hD-1sr" secondAttribute="height" multiplier="22:17" id="Y5j-P2-mrn"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxg-TE-oYi">
                         <rect key="frame" x="10" y="79" width="300" height="151"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame</string>
@@ -67,16 +56,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hxg-TE-oYi" firstAttribute="trailing" secondItem="Hjf-hD-1sr" secondAttribute="trailing" id="1Eb-ao-IQe"/>
+                    <constraint firstAttribute="trailing" secondItem="hxg-TE-oYi" secondAttribute="trailing" constant="10" id="3kI-zz-Oss"/>
                     <constraint firstItem="C6H-rs-Mco" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7by-PJ-o6A"/>
                     <constraint firstItem="hxg-TE-oYi" firstAttribute="leading" secondItem="C6H-rs-Mco" secondAttribute="leading" id="E3R-pd-TES"/>
                     <constraint firstItem="NrC-65-Tg2" firstAttribute="top" secondItem="C6H-rs-Mco" secondAttribute="top" id="FAh-4f-SWq"/>
-                    <constraint firstItem="Hjf-hD-1sr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NrC-65-Tg2" secondAttribute="trailing" constant="10" id="YaG-Pu-xIp"/>
                     <constraint firstItem="NrC-65-Tg2" firstAttribute="leading" secondItem="C6H-rs-Mco" secondAttribute="trailing" constant="10" id="aLZ-Ll-BB2"/>
-                    <constraint firstItem="Hjf-hD-1sr" firstAttribute="top" secondItem="C6H-rs-Mco" secondAttribute="top" id="lyo-5Y-6ml"/>
                     <constraint firstItem="hxg-TE-oYi" firstAttribute="top" secondItem="C6H-rs-Mco" secondAttribute="bottom" constant="10" id="rAc-YR-7dv"/>
                     <constraint firstItem="C6H-rs-Mco" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="sW7-JH-ClP"/>
-                    <constraint firstAttribute="trailing" secondItem="Hjf-hD-1sr" secondAttribute="trailing" constant="10" id="xXA-G8-VZZ"/>
                     <constraint firstAttribute="bottom" secondItem="hxg-TE-oYi" secondAttribute="bottom" constant="5" id="yWB-3V-4mu"/>
                 </constraints>
             </tableViewCellContentView>
@@ -85,7 +71,6 @@
                 <outlet property="descLabel" destination="hxg-TE-oYi" id="mdQ-Ds-ena"/>
                 <outlet property="distanceLabel" destination="vMj-DP-x5D" id="c7K-nY-yMb"/>
                 <outlet property="placeImageView" destination="C6H-rs-Mco" id="cZz-N2-yE0"/>
-                <outlet property="pointLabel" destination="Hjf-hD-1sr" id="VqS-Ra-zWl"/>
                 <outlet property="subTitleLabel" destination="fV5-zo-hGC" id="Sgy-2x-W84"/>
                 <outlet property="titleLabel" destination="9YI-3D-SIb" id="iBo-iA-hOF"/>
             </connections>
@@ -96,9 +81,6 @@
         <image name="demoImagePlace" width="626" height="417"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

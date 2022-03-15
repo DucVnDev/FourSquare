@@ -11,14 +11,9 @@ class PlaceDetailCollectionReusableView: UICollectionReusableView {
 
 
     @IBOutlet weak var imageView: UIImageView!
-
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
-
-    @IBOutlet weak var infoBtn: UIButton!
-    @IBOutlet weak var photosBtn: UIButton!
-    @IBOutlet weak var tipBtn: UIButton!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 

@@ -17,7 +17,6 @@ struct PlaceTableViewCellViewModel {
     var distance: Double
     var locality: String
     var desc: String
-    var point: String
     var imgURL: String?
 }
 
@@ -55,7 +54,6 @@ class PlaceTableViewCell: UITableViewCell {
         titleLabel.text = "\(viewModel.indexPath). \(viewModel.title)"
         subTitleLabel.text = viewModel.subtitle
         distanceLabel.text = "\(viewModel.distance)m  \(viewModel.locality)"
-        pointLabel.text = viewModel.point
         fetchPhotoWith(fsqID: viewModel.fsqID)
     }
 
