@@ -24,7 +24,7 @@
                             <color key="textColor" name="AccentColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner" translatesAutoresizingMaskIntoConstraints="NO" id="OZX-sZ-Yyy">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Banner2" translatesAutoresizingMaskIntoConstraints="NO" id="OZX-sZ-Yyy">
                             <rect key="frame" x="0.0" y="0.0" width="332" height="164"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="OZX-sZ-Yyy" secondAttribute="height" multiplier="83:41" id="Lmz-Kq-m0Q"/>
@@ -65,7 +65,7 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="banner" width="960" height="589"/>
+        <image name="Banner2" width="1000" height="668"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -20,13 +20,9 @@ class DetailPlaceInfoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-
-    var photoDetailPlace: [String] = ["placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder"]
-    var tipDetailPlace: [String] = ["Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame", "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit er elit lame"]
-
     var infoDetailPlace = PlaceDetailViewMode(id: "", name: "", address: "", category: "")
-    //var imgURLBannerString: UIImageView!
-
+    var urlPhotosPlaceString: [String] = []
+    var tipDetailPlace: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +38,9 @@ class DetailPlaceInfoViewController: UIViewController {
         //register Header
         collectionView.register(UINib(nibName: "PlaceDetailCollectionReusableView", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView")
         collectionView.register(UINib(nibName: "HeaderSectionPlaceDetailCell", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell")
+
+        fetchPhotoWith(fsqID: self.infoDetailPlace.id)
+        fetchTipsWith(fsqID: self.infoDetailPlace.id)
     }
 }
 
@@ -53,7 +52,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
             case 1:
                 return 1 //InfoPlaceCell
             case 2:
-                return photoDetailPlace.count //PhotoPlaceCell
+                return urlPhotosPlaceString.count //PhotoPlaceCell
             case 3:
                 return tipDetailPlace.count //TipPlaceCell
             default:
@@ -71,7 +70,6 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
                 return UICollectionViewCell()
             case 1:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfoPlaceCell", for: indexPath) as! InfoPlaceCell
-
                 let item = infoDetailPlace
                 cell.addressLabel.text = item.address
                 cell.categoryLabel.text = item.category
@@ -79,14 +77,12 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
 
             case 2:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoPlaceCell", for: indexPath) as! PhotoPlaceCell
-
-                let item = photoDetailPlace[indexPath.item]
-                cell.imageView.image = UIImage(named: item)
+                let item = urlPhotosPlaceString[indexPath.item]
+                cell.imageView.sd_setImage(with: URL(string: item))
                 return cell
 
             case 3:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TipPlaceCell", for: indexPath) as! TipPlaceCell
-
                 let item = tipDetailPlace[indexPath.item]
                 cell.tipTitleLabel.text = item
                 return cell
@@ -197,8 +193,53 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
-//API
+//MARK: -LOAD API
 extension DetailPlaceInfoViewController {
+    func fetchPhotoWith(fsqID: String) {
+        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/photos"
+        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                    .accept("application/json")]
+        AF.request(urlString,
+                   method: .get,
+                   headers: headers)
+            .validate()
+            .responseDecodable(of: [PlacePhotoElement].self) { responseData in
+                guard let data = responseData.value else { return }
+                if data.count != 0 {
+                    for i in 0...(data.count-1) {
+                        let prefix = data[i].placePhotoPrefix
+                        let suffix = data[i].suffix
+                        let imgURLString = "\(prefix)600x600\(suffix)"
+                        self.urlPhotosPlaceString.append(imgURLString)
+                    }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+    }
+
+    func fetchTipsWith(fsqID: String) {
+        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/tips"
+        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                    .accept("application/json")]
+        AF.request(urlString,
+                   method: .get,
+                   headers: headers)
+            .validate()
+            .responseDecodable(of: [PlaceTipElement].self) { responseData in
+                guard let data = responseData.value else { return }
+                if data.count != 0 {
+                    for i in 0...(data.count-1) {
+                        let tip = data[i].text
+                        self.tipDetailPlace.append(tip)
+                    }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+    }
 }
 
 

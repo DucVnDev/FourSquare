@@ -18,38 +18,17 @@ class PlaceDetailCollectionReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        setProperties()
-    }
-
-    func setProperties() {
-        //Gradien View
-        //someView.applyGradient(isVertical: true, colorArray: [.green, .blue])
     }
     
-}
-
-extension UIView {
-    func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
-        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
-
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colorArray.map({ $0.cgColor })
-        if isVertical {
-            //top to bottom
-            gradientLayer.locations = [0.0, 1.0]
-        } else {
-            //left to right
-            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        }
-
-        backgroundColor = .clear
-        gradientLayer.frame = bounds
-        layer.insertSublayer(gradientLayer, at: 0)
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = UIImage(named: "placeholder")
+        titleLabel.text = ""
+        subTitleLabel.text = ""
     }
 }
 
+//MARK: - Load API PhotoPlace and TipsPlace  {
 extension PlaceDetailCollectionReusableView {
     func fetchPhotoWith(fsqID: String) {
         let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/photos"
@@ -63,7 +42,6 @@ extension PlaceDetailCollectionReusableView {
                 guard let data = responseData.value else { return }
                 if let prefix = data.first?.placePhotoPrefix, let suffix = data.first?.suffix {
                     let imgURLString = "\(prefix)1200x1200\(suffix)"
-                    //self.imgURLBannerString = imgURLString
                     self.imageView.sd_setImage(with: URL(string: imgURLString))
                 }
             }

@@ -14,4 +14,8 @@ class PhotoPlaceCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+
+    override func prepareForReuse() {
+        imageView.image = UIImage(named: "placeholder")
+    }
 }

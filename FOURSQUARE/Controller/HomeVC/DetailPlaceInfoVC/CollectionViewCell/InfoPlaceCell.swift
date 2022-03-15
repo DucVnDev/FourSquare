@@ -19,8 +19,6 @@ class InfoPlaceCell: UICollectionViewCell {
         directionBtn.layer.cornerRadius = 10
     }
 
-
-
     @IBAction func directionDidTap(_ sender: Any) {
     }
 }
