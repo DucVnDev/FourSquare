@@ -7,18 +7,30 @@
 
 import UIKit
 
+protocol InfoPlaceCellDelegate: AnyObject {
+    func InfoPlaceCellDelegate( viewController: UIViewController)
+
+}
+
 class InfoPlaceCell: UICollectionViewCell {
 
 
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var directionBtn: UIButton!
+
+    weak var delegate : InfoPlaceCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-
         directionBtn.layer.cornerRadius = 10
     }
 
-    @IBAction func directionDidTap(_ sender: Any) {
+    
+    @IBAction func directionDidTap(_ sender: UIButton) {
+        let mapVC = MapingViewController()
+        delegate?.InfoPlaceCellDelegate(viewController: mapVC)
+
+
     }
 }

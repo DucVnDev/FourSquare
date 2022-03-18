@@ -2,28 +2,33 @@
 //  MapSearchViewController.swift
 //  FOURSQUARE
 //
-//  Created by Van Ngoc Duc on 02/03/2022.
+//  Created by Van Ngoc Duc on 15/03/2022.
 //
 
 import UIKit
-
+import MapKit
 class MapSearchViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       let initialLocation = CLLocation(latitude: 16.048279, longitude: 108.209508)
+        mapView.centerToLocation(initialLocation)
+        // Show artwork on map
+        let artwork = Artwork(
+          title: "Mỳ quảng Đồng Quê-48 Nguyễn Hữu Thọ",
+          locationName: "Da Nang",
+          discipline: "Sculpture",
+          coordinate: CLLocationCoordinate2D(latitude: 16.048279, longitude: 108.209508))
+        mapView.addAnnotation(artwork)
 
-        // Do any additional setup after loading the view.
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+private extension MKMapView {
+  func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 5000) {
+    let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+    setRegion(coordinateRegion, animated: true)
+  }
+}
+

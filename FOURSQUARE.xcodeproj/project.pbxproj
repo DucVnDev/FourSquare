@@ -23,7 +23,6 @@
 		172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
-		174A1E0427CE872B00CDD3AC /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0327CE872B00CDD3AC /* Extension.swift */; };
 		174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0827CEEB3900CDD3AC /* ListViewController.swift */; };
 		174A1E0B27CEEB3900CDD3AC /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E0927CEEB3900CDD3AC /* ListViewController.xib */; };
 		174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */; };
@@ -32,17 +31,22 @@
 		174A1E1427CEECDA00CDD3AC /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1227CEECDA00CDD3AC /* MeViewController.xib */; };
 		174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */; };
 		174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */; };
-		174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1D27CF342D00CDD3AC /* MapSearchViewController.swift */; };
-		174A1E2027CF342D00CDD3AC /* MapSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1E27CF342D00CDD3AC /* MapSearchViewController.xib */; };
 		174A1E2827CF39AB00CDD3AC /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E2627CF39AB00CDD3AC /* PlaceTableViewCell.swift */; };
 		174A1E2927CF39AB00CDD3AC /* PlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */; };
 		174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */; };
 		174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */; };
+		1759C48827E4882300C18102 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48727E4882300C18102 /* SDWebImage */; };
+		1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48927E4882300C18102 /* SDWebImageMapKit */; };
 		17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DDD27CE3A1F009EDF46 /* AppDelegate.swift */; };
 		17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DE627CE3A22009EDF46 /* Assets.xcassets */; };
 		17C44DEA27CE3A22009EDF46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DE827CE3A22009EDF46 /* LaunchScreen.storyboard */; };
 		17C44DF427CE3B2B009EDF46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DF227CE3B2B009EDF46 /* HomeViewController.swift */; };
 		17C44DF527CE3B2B009EDF46 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */; };
+		17E9F27427E0CF83008267EF /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27227E0CF83008267EF /* MapSearchViewController.swift */; };
+		17E9F27527E0CF83008267EF /* MapSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E9F27327E0CF83008267EF /* MapSearchViewController.xib */; };
+		17E9F27927E0DAA0008267EF /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27827E0DAA0008267EF /* Artwork.swift */; };
+		17E9F27D27E0E768008267EF /* MapingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27B27E0E768008267EF /* MapingViewController.swift */; };
+		17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E9F27C27E0E768008267EF /* MapingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +63,6 @@
 		172DFD3027E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSectionPlaceDetailCell.xib; sourceTree = "<group>"; };
 		172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPlaceCell.xib; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
-		174A1E0327CE872B00CDD3AC /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		174A1E0827CEEB3900CDD3AC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		174A1E0927CEEB3900CDD3AC /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -68,8 +71,6 @@
 		174A1E1227CEECDA00CDD3AC /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchViewController.swift; sourceTree = "<group>"; };
 		174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListSearchViewController.xib; sourceTree = "<group>"; };
-		174A1E1D27CF342D00CDD3AC /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
-		174A1E1E27CF342D00CDD3AC /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchViewController.xib; sourceTree = "<group>"; };
 		174A1E2627CF39AB00CDD3AC /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceInfoViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +82,11 @@
 		17C44DEB27CE3A22009EDF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C44DF227CE3B2B009EDF46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		17E9F27227E0CF83008267EF /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
+		17E9F27327E0CF83008267EF /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchViewController.xib; sourceTree = "<group>"; };
+		17E9F27827E0DAA0008267EF /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
+		17E9F27B27E0E768008267EF /* MapingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapingViewController.swift; sourceTree = "<group>"; };
+		17E9F27C27E0E768008267EF /* MapingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				170C20E227D78F8400F84431 /* SDWebImage in Frameworks */,
+				1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */,
 				170C20E427D78F8400F84431 /* SDWebImageMapKit in Frameworks */,
+				1759C48827E4882300C18102 /* SDWebImage in Frameworks */,
 				174768FF27D3546300AE1B0A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +213,7 @@
 		17C44DDC27CE3A1F009EDF46 /* FOURSQUARE */ = {
 			isa = PBXGroup;
 			children = (
+				17E9F27A27E0E74C008267EF /* MapTutorial */,
 				174A1E2127CF389B00CDD3AC /* Models */,
 				17C44DF127CE3B05009EDF46 /* Controller */,
 				17C44DF727CE601D009EDF46 /* AppDelegate */,
@@ -221,7 +230,6 @@
 				174A1E0527CEEB0E00CDD3AC /* ListVC */,
 				174A1E0627CEEB1B00CDD3AC /* HistoryVC */,
 				174A1E0727CEEB2500CDD3AC /* MeVC */,
-				174A1E0327CE872B00CDD3AC /* Extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,10 +260,20 @@
 				17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */,
 				174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */,
 				174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */,
-				174A1E1D27CF342D00CDD3AC /* MapSearchViewController.swift */,
-				174A1E1E27CF342D00CDD3AC /* MapSearchViewController.xib */,
+				17E9F27227E0CF83008267EF /* MapSearchViewController.swift */,
+				17E9F27327E0CF83008267EF /* MapSearchViewController.xib */,
+				17E9F27827E0DAA0008267EF /* Artwork.swift */,
 			);
 			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		17E9F27A27E0E74C008267EF /* MapTutorial */ = {
+			isa = PBXGroup;
+			children = (
+				17E9F27B27E0E768008267EF /* MapingViewController.swift */,
+				17E9F27C27E0E768008267EF /* MapingViewController.xib */,
+			);
+			path = MapTutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +296,8 @@
 				174768FE27D3546300AE1B0A /* Alamofire */,
 				170C20E127D78F8400F84431 /* SDWebImage */,
 				170C20E327D78F8400F84431 /* SDWebImageMapKit */,
+				1759C48727E4882300C18102 /* SDWebImage */,
+				1759C48927E4882300C18102 /* SDWebImageMapKit */,
 			);
 			productName = FOURSQUARE;
 			productReference = 17C44DDA27CE3A1F009EDF46 /* FOURSQUARE.app */;
@@ -329,6 +349,7 @@
 				17C44DEA27CE3A22009EDF46 /* LaunchScreen.storyboard in Resources */,
 				174A1E2927CF39AB00CDD3AC /* PlaceTableViewCell.xib in Resources */,
 				172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */,
+				17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */,
 				174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */,
 				17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */,
 				174A1E0B27CEEB3900CDD3AC /* ListViewController.xib in Resources */,
@@ -336,9 +357,9 @@
 				172DFD3227E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib in Resources */,
 				17C44DF527CE3B2B009EDF46 /* HomeViewController.xib in Resources */,
 				172DFD1F27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib in Resources */,
-				174A1E2027CF342D00CDD3AC /* MapSearchViewController.xib in Resources */,
 				174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */,
 				172DFD2A27DFAB0D00F261C7 /* PhotoPlaceCell.xib in Resources */,
+				17E9F27527E0CF83008267EF /* MapSearchViewController.xib in Resources */,
 				172DFD2E27DFB8A500F261C7 /* TipPlaceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,17 +371,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E9F27D27E0E768008267EF /* MapingViewController.swift in Sources */,
 				174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */,
 				174768FC27D353FC00AE1B0A /* Places.swift in Sources */,
 				172DFD1E27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift in Sources */,
-				174A1E0427CE872B00CDD3AC /* Extension.swift in Sources */,
 				17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */,
 				172DFD2D27DFB8A500F261C7 /* TipPlaceCell.swift in Sources */,
 				172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */,
+				17E9F27427E0CF83008267EF /* MapSearchViewController.swift in Sources */,
 				172DFD2227DF876A00F261C7 /* InfoPlaceCell.swift in Sources */,
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
-				174A1E1F27CF342D00CDD3AC /* MapSearchViewController.swift in Sources */,
 				174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */,
+				17E9F27927E0DAA0008267EF /* Artwork.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
 				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
 				174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */,
@@ -506,12 +528,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6R7AZQR2W6;
+				DEVELOPMENT_TEAM = 8FG8BPBM54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FOURSQUARE/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -522,9 +546,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.vnd.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = "Duc-Van.FOURSQUARE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = vnd;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -536,12 +560,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6R7AZQR2W6;
+				DEVELOPMENT_TEAM = 8FG8BPBM54;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FOURSQUARE/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -552,9 +578,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vn.vnd.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = "Duc-Van.FOURSQUARE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = vnd;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -618,6 +644,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 174768FD27D3546300AE1B0A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		1759C48727E4882300C18102 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 170C20E027D78F8400F84431 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		1759C48927E4882300C18102 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 170C20E027D78F8400F84431 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

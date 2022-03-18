@@ -242,4 +242,11 @@ extension DetailPlaceInfoViewController {
     }
 }
 
+extension DetailPlaceInfoViewController: InfoPlaceCellDelegate {
+    func InfoPlaceCellDelegate(viewController: UIViewController) {
+        print("Da nhan tin hieu")
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 
