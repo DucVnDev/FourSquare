@@ -14,16 +14,19 @@ class MapingViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationBtn: UIButton!
 
+
+    var latitude: Double = 0
+    var longitude: Double = 0
     let manager = CLLocationManager()
 
-    var locationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Mapping"
 
         mapView.delegate = self
 
-        let destination = CLLocationCoordinate2D(latitude: 16.071763, longitude: 108.223963)
+        print(latitude, longitude)
+        let destination = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         addPin(coordinate: destination, title: "Point 01", subTitle: "Test Demo")
         mapThis(_destinationCoordinate: destination)
     }
@@ -75,7 +78,7 @@ class MapingViewController: UIViewController {
             guard let mapRouter = response?.routes.first else {
                 return }
             self.mapView.addOverlay(mapRouter.polyline)
-            self.mapView.setVisibleMapRect(mapRouter.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 0, left: 50, bottom: 50, right: 50), animated: true)
+            self.mapView.setVisibleMapRect(mapRouter.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: 0, left: 100, bottom: 50, right: 100), animated: true)
         }
     }
 }
@@ -84,11 +87,12 @@ class MapingViewController: UIViewController {
 extension MapingViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
+            print(location.coordinate)
             manager.stopUpdatingLocation()
-            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            //let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            //let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.showsUserLocation = true
-            mapView.setRegion(region, animated: true)
+            //mapView.setRegion(region, animated: true)
         }
     }
 }

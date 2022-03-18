@@ -14,13 +14,15 @@ struct PlaceDetailViewMode {
     var name: String
     var address: String
     var category: String
+    var latidute: Double
+    var longitude: Double
 }
 
 class DetailPlaceInfoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var infoDetailPlace = PlaceDetailViewMode(id: "", name: "", address: "", category: "")
+    var infoDetailPlace = PlaceDetailViewMode(id: "", name: "", address: "", category: "", latidute: 0, longitude: 0)
     var urlPhotosPlaceString: [String] = []
     var tipDetailPlace: [String] = []
 
@@ -73,6 +75,9 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
                 let item = infoDetailPlace
                 cell.addressLabel.text = item.address
                 cell.categoryLabel.text = item.category
+                cell.latitude = item.latidute
+                cell.longitude = item.longitude
+                cell.delegate = self
                 return cell
 
             case 2:

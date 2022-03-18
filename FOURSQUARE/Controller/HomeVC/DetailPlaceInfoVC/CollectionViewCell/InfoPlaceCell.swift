@@ -20,7 +20,8 @@ class InfoPlaceCell: UICollectionViewCell {
     @IBOutlet weak var directionBtn: UIButton!
 
     weak var delegate : InfoPlaceCellDelegate?
-
+    var latitude: Double?
+    var longitude: Double?
     override func awakeFromNib() {
         super.awakeFromNib()
         directionBtn.layer.cornerRadius = 10
@@ -29,8 +30,9 @@ class InfoPlaceCell: UICollectionViewCell {
     
     @IBAction func directionDidTap(_ sender: UIButton) {
         let mapVC = MapingViewController()
+        mapVC.latitude = self.latitude!
+        mapVC.longitude = self.longitude!
         delegate?.InfoPlaceCellDelegate(viewController: mapVC)
-
 
     }
 }
