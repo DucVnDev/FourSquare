@@ -29,15 +29,7 @@ class SearchViewController: UIViewController {
 
         fetchNearByPlaces()
     }
-
-    var isSearchBarEmpty: Bool {
-      return searchController.searchBar.text?.isEmpty ?? true
-    }
-
-    var isFiltering: Bool {
-      return searchController.isActive && !isSearchBarEmpty
-    }
-
+    
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filterPlaces = resultPlace.filter({ result in
             return result.name.lowercased().contains(searchText.lowercased())
