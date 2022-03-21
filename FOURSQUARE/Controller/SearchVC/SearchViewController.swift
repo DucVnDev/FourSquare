@@ -27,9 +27,11 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
 
-        fetchNearByPlaces()
+        searchController.searchBar.delegate = self
+
+        //fetchNearByPlaces()
     }
-    
+
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filterPlaces = resultPlace.filter({ result in
             return result.name.lowercased().contains(searchText.lowercased())
@@ -77,15 +79,28 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - extension SearchViewController: UISearchResultsUpdating
+//MARK: - SearchViewController: UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
     }
-
 }
 
-//MARK: -Extension ListSearchViewController
+//MARK: - SearchViewController: UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        fetchNearByPlaces()
+        //tableView.reloadData()
+    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.text = nil
+//        searchBar.resignFirstResponder()
+//        tableView.reloadData()
+//    }
+}
+
+//MARK: -ListSearchViewController API
 extension SearchViewController {
     //MARK: -func fetchNearByPlaces()
     func fetchNearByPlaces(){
