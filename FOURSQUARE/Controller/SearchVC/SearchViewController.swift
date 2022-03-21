@@ -44,16 +44,16 @@ class SearchViewController: UIViewController {
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchController.isActive && searchController.searchBar.text != nil {
             return filterPlaces.count
         } else {
-            return resultPlace.count
+            return 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
-        if searchController.isActive && searchController.searchBar.text != "" {
+        if searchController.isActive && searchController.searchBar.text != nil {
             let item = filterPlaces[indexPath.row]
             let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
             cell.updateWith(cellViewModel)
@@ -83,6 +83,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+        fetchNearByPlaces()
     }
 }
 
@@ -90,14 +91,13 @@ extension SearchViewController: UISearchResultsUpdating{
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         fetchNearByPlaces()
-        //tableView.reloadData()
     }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        searchBar.text = nil
-//        searchBar.resignFirstResponder()
-//        tableView.reloadData()
-//    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.searchBar.text = nil
+        searchController.searchBar.resignFirstResponder()
+        tableView.reloadData()
+    }
 }
 
 //MARK: -ListSearchViewController API
