@@ -61,6 +61,7 @@ class HomeViewController: UIViewController {
 
     
     @IBAction func searchBtnDidTap(_ sender: Any) {
+        self.navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 
     @IBAction func breakfastBtnDidTap(_ sender: Any) {

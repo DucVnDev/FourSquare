@@ -11,14 +11,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        //tableView
-        tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
+        title = "Search Place"
 
         //searchController
         searchController.searchResultsUpdater = self
@@ -29,7 +22,12 @@ class SearchViewController: UIViewController {
 
         searchController.searchBar.delegate = self
 
-        //fetchNearByPlaces()
+        //tableView
+        tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
@@ -57,10 +55,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
             let item = filterPlaces[indexPath.row]
             let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
             cell.updateWith(cellViewModel)
-        } else {
-            let item = resultPlace[indexPath.row]
-            let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
-            cell.updateWith(cellViewModel)
         }
         return cell
     }
@@ -70,9 +64,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
         if searchController.isActive && searchController.searchBar.text != "" {
             let item = filterPlaces[indexPath.row]
-            vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "", latidute: item.geocodes.main.latitude, longitude: item.geocodes.main.longitude)
-        } else {
-            let item = resultPlace[indexPath.row]
             vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "", latidute: item.geocodes.main.latitude, longitude: item.geocodes.main.longitude)
         }
       self.navigationController?.pushViewController(vc, animated: true)
