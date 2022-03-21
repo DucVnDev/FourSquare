@@ -29,11 +29,7 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultPlace.count
     }
-
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
         let item = resultPlace[indexPath.row]
@@ -70,29 +66,6 @@ extension ListSearchViewController {
                 }
             }
     }
-
-//    func fetchPlaceTip(fsqID: String, titlePlace: String){
-//
-//        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/tips"
-//        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-//                                    .accept("application/json")]
-//        AF.request(urlString,
-//                   method: .get,
-//                   headers: headers)
-//            .validate()
-//            .responseDecodable(of: [PlaceTipElement].self) { (responseData) in
-//                guard let data = responseData.value else { return }
-//                self.placeTip = data
-//                DispatchQueue.main.async {
-//                    if data.first?.text != nil {
-//                        self.descLabel.text = data.first?.text
-//                    } else {
-//                        self.descLabel.text  = ""
-//                        print("No Place Tips with: \(fsqID) - \(titlePlace)")
-//                    }
-//                }
-//            }
-//    }
 }
 
 

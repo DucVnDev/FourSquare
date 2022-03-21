@@ -23,8 +23,6 @@
 		172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
-		174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0827CEEB3900CDD3AC /* ListViewController.swift */; };
-		174A1E0B27CEEB3900CDD3AC /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E0927CEEB3900CDD3AC /* ListViewController.xib */; };
 		174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */; };
 		174A1E0F27CEEB4800CDD3AC /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E0D27CEEB4800CDD3AC /* HistoryViewController.xib */; };
 		174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1127CEECDA00CDD3AC /* MeViewController.swift */; };
@@ -37,14 +35,13 @@
 		174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */; };
 		1759C48827E4882300C18102 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48727E4882300C18102 /* SDWebImage */; };
 		1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48927E4882300C18102 /* SDWebImageMapKit */; };
+		17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C312EF27E87FD5007DE60A /* SearchViewController.swift */; };
+		17C312F227E87FD5007DE60A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C312F027E87FD5007DE60A /* SearchViewController.xib */; };
 		17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DDD27CE3A1F009EDF46 /* AppDelegate.swift */; };
 		17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DE627CE3A22009EDF46 /* Assets.xcassets */; };
 		17C44DEA27CE3A22009EDF46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DE827CE3A22009EDF46 /* LaunchScreen.storyboard */; };
 		17C44DF427CE3B2B009EDF46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DF227CE3B2B009EDF46 /* HomeViewController.swift */; };
 		17C44DF527CE3B2B009EDF46 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */; };
-		17E9F27427E0CF83008267EF /* MapSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27227E0CF83008267EF /* MapSearchViewController.swift */; };
-		17E9F27527E0CF83008267EF /* MapSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E9F27327E0CF83008267EF /* MapSearchViewController.xib */; };
-		17E9F27927E0DAA0008267EF /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27827E0DAA0008267EF /* Artwork.swift */; };
 		17E9F27D27E0E768008267EF /* MapingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E9F27B27E0E768008267EF /* MapingViewController.swift */; };
 		17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E9F27C27E0E768008267EF /* MapingViewController.xib */; };
 /* End PBXBuildFile section */
@@ -63,8 +60,6 @@
 		172DFD3027E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSectionPlaceDetailCell.xib; sourceTree = "<group>"; };
 		172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPlaceCell.xib; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
-		174A1E0827CEEB3900CDD3AC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		174A1E0927CEEB3900CDD3AC /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		174A1E0D27CEEB4800CDD3AC /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		174A1E1127CEECDA00CDD3AC /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +70,8 @@
 		174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceInfoViewController.swift; sourceTree = "<group>"; };
 		174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPlaceInfoViewController.xib; sourceTree = "<group>"; };
+		17C312EF27E87FD5007DE60A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		17C312F027E87FD5007DE60A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		17C44DDA27CE3A1F009EDF46 /* FOURSQUARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOURSQUARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C44DDD27CE3A1F009EDF46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C44DE627CE3A22009EDF46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,9 +79,6 @@
 		17C44DEB27CE3A22009EDF46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C44DF227CE3B2B009EDF46 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		17E9F27227E0CF83008267EF /* MapSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchViewController.swift; sourceTree = "<group>"; };
-		17E9F27327E0CF83008267EF /* MapSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapSearchViewController.xib; sourceTree = "<group>"; };
-		17E9F27827E0DAA0008267EF /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		17E9F27B27E0E768008267EF /* MapingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapingViewController.swift; sourceTree = "<group>"; };
 		17E9F27C27E0E768008267EF /* MapingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,15 +127,6 @@
 				1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		174A1E0527CEEB0E00CDD3AC /* ListVC */ = {
-			isa = PBXGroup;
-			children = (
-				174A1E0827CEEB3900CDD3AC /* ListViewController.swift */,
-				174A1E0927CEEB3900CDD3AC /* ListViewController.xib */,
-			);
-			path = ListVC;
 			sourceTree = "<group>";
 		};
 		174A1E0627CEEB1B00CDD3AC /* HistoryVC */ = {
@@ -194,6 +179,15 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		17C312F327E87FDE007DE60A /* SearchVC */ = {
+			isa = PBXGroup;
+			children = (
+				17C312EF27E87FD5007DE60A /* SearchViewController.swift */,
+				17C312F027E87FD5007DE60A /* SearchViewController.xib */,
+			);
+			path = SearchVC;
+			sourceTree = "<group>";
+		};
 		17C44DD127CE3A1E009EDF46 = {
 			isa = PBXGroup;
 			children = (
@@ -227,7 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				17C44DF827CE6028009EDF46 /* HomeVC */,
-				174A1E0527CEEB0E00CDD3AC /* ListVC */,
+				17C312F327E87FDE007DE60A /* SearchVC */,
 				174A1E0627CEEB1B00CDD3AC /* HistoryVC */,
 				174A1E0727CEEB2500CDD3AC /* MeVC */,
 			);
@@ -260,9 +254,6 @@
 				17C44DF327CE3B2B009EDF46 /* HomeViewController.xib */,
 				174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */,
 				174A1E1A27CF341B00CDD3AC /* ListSearchViewController.xib */,
-				17E9F27227E0CF83008267EF /* MapSearchViewController.swift */,
-				17E9F27327E0CF83008267EF /* MapSearchViewController.xib */,
-				17E9F27827E0DAA0008267EF /* Artwork.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -352,14 +343,13 @@
 				17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */,
 				174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */,
 				17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */,
-				174A1E0B27CEEB3900CDD3AC /* ListViewController.xib in Resources */,
 				174A1E0F27CEEB4800CDD3AC /* HistoryViewController.xib in Resources */,
 				172DFD3227E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib in Resources */,
 				17C44DF527CE3B2B009EDF46 /* HomeViewController.xib in Resources */,
 				172DFD1F27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib in Resources */,
 				174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */,
 				172DFD2A27DFAB0D00F261C7 /* PhotoPlaceCell.xib in Resources */,
-				17E9F27527E0CF83008267EF /* MapSearchViewController.xib in Resources */,
+				17C312F227E87FD5007DE60A /* SearchViewController.xib in Resources */,
 				172DFD2E27DFB8A500F261C7 /* TipPlaceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,13 +368,11 @@
 				17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */,
 				172DFD2D27DFB8A500F261C7 /* TipPlaceCell.swift in Sources */,
 				172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */,
-				17E9F27427E0CF83008267EF /* MapSearchViewController.swift in Sources */,
 				172DFD2227DF876A00F261C7 /* InfoPlaceCell.swift in Sources */,
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
-				174A1E0A27CEEB3900CDD3AC /* ListViewController.swift in Sources */,
-				17E9F27927E0DAA0008267EF /* Artwork.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
 				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
+				17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */,
 				174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */,
 				174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */,
 				172DFD2927DFAB0D00F261C7 /* PhotoPlaceCell.swift in Sources */,

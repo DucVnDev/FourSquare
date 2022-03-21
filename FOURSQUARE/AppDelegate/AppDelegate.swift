@@ -27,10 +27,10 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
 
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage.init(systemName: "magnifyingglass"), tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage.init(systemName: "house"), tag: 0)
 
-        let listVC = UINavigationController(rootViewController: ListViewController())
-        listVC.tabBarItem = UITabBarItem(title: "Lists", image: UIImage.init(systemName: "list.bullet"), tag: 0)
+        let searchVC = UINavigationController(rootViewController: SearchViewController())
+        searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage.init(systemName: "magnifyingglass"), tag: 0)
 
         let historyVC = UINavigationController(rootViewController: HistoryViewController())
         historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage.init(systemName: "menucard.fill"), tag: 0)
@@ -38,7 +38,7 @@ class TabBarController: UITabBarController {
         let meVC = UINavigationController(rootViewController: MeViewController())
         meVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
 
-        setViewControllers([homeVC, listVC, historyVC, meVC], animated: true)
+        setViewControllers([homeVC, searchVC, historyVC, meVC], animated: true)
     }
 }
 
