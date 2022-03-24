@@ -23,8 +23,6 @@
 		172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
-		174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */; };
-		174A1E0F27CEEB4800CDD3AC /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E0D27CEEB4800CDD3AC /* HistoryViewController.xib */; };
 		174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1127CEECDA00CDD3AC /* MeViewController.swift */; };
 		174A1E1427CEECDA00CDD3AC /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E1227CEECDA00CDD3AC /* MeViewController.xib */; };
 		174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */; };
@@ -35,6 +33,11 @@
 		174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */; };
 		1759C48827E4882300C18102 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48727E4882300C18102 /* SDWebImage */; };
 		1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48927E4882300C18102 /* SDWebImageMapKit */; };
+		1786D6D027E9C0F400121C70 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1786D6CF27E9C0F400121C70 /* RealmSwift */; };
+		1786D6D527E9D3E800121C70 /* FavoritePlaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */; };
+		17AEFB0327EB3EB50040F7FA /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */; };
+		17AEFB0427EB3EB50040F7FA /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */; };
+		17AEFB0627EB6A520040F7FA /* DetailPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0527EB6A520040F7FA /* DetailPlace.swift */; };
 		17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C312EF27E87FD5007DE60A /* SearchViewController.swift */; };
 		17C312F227E87FD5007DE60A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C312F027E87FD5007DE60A /* SearchViewController.xib */; };
 		17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DDD27CE3A1F009EDF46 /* AppDelegate.swift */; };
@@ -60,8 +63,6 @@
 		172DFD3027E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSectionPlaceDetailCell.xib; sourceTree = "<group>"; };
 		172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPlaceCell.xib; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
-		174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		174A1E0D27CEEB4800CDD3AC /* HistoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 		174A1E1127CEECDA00CDD3AC /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		174A1E1227CEECDA00CDD3AC /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		174A1E1927CF341B00CDD3AC /* ListSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSearchViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +71,10 @@
 		174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceInfoViewController.swift; sourceTree = "<group>"; };
 		174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPlaceInfoViewController.xib; sourceTree = "<group>"; };
+		1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceItem.swift; sourceTree = "<group>"; };
+		17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
+		17AEFB0527EB6A520040F7FA /* DetailPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlace.swift; sourceTree = "<group>"; };
 		17C312EF27E87FD5007DE60A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		17C312F027E87FD5007DE60A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		17C44DDA27CE3A1F009EDF46 /* FOURSQUARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOURSQUARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1786D6D027E9C0F400121C70 /* RealmSwift in Frameworks */,
 				170C20E227D78F8400F84431 /* SDWebImage in Frameworks */,
 				1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */,
 				170C20E427D78F8400F84431 /* SDWebImageMapKit in Frameworks */,
@@ -125,17 +131,19 @@
 				174768FB27D353FC00AE1B0A /* Places.swift */,
 				172B75EC27D49F5900FA128B /* PlacePhotoElement.swift */,
 				1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */,
+				1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */,
+				17AEFB0527EB6A520040F7FA /* DetailPlace.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		174A1E0627CEEB1B00CDD3AC /* HistoryVC */ = {
+		174A1E0627CEEB1B00CDD3AC /* FavouriteVC */ = {
 			isa = PBXGroup;
 			children = (
-				174A1E0C27CEEB4800CDD3AC /* HistoryViewController.swift */,
-				174A1E0D27CEEB4800CDD3AC /* HistoryViewController.xib */,
+				17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */,
+				17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */,
 			);
-			path = HistoryVC;
+			path = FavouriteVC;
 			sourceTree = "<group>";
 		};
 		174A1E0727CEEB2500CDD3AC /* MeVC */ = {
@@ -222,7 +230,7 @@
 			children = (
 				17C44DF827CE6028009EDF46 /* HomeVC */,
 				17C312F327E87FDE007DE60A /* SearchVC */,
-				174A1E0627CEEB1B00CDD3AC /* HistoryVC */,
+				174A1E0627CEEB1B00CDD3AC /* FavouriteVC */,
 				174A1E0727CEEB2500CDD3AC /* MeVC */,
 			);
 			path = Controller;
@@ -289,6 +297,7 @@
 				170C20E327D78F8400F84431 /* SDWebImageMapKit */,
 				1759C48727E4882300C18102 /* SDWebImage */,
 				1759C48927E4882300C18102 /* SDWebImageMapKit */,
+				1786D6CF27E9C0F400121C70 /* RealmSwift */,
 			);
 			productName = FOURSQUARE;
 			productReference = 17C44DDA27CE3A1F009EDF46 /* FOURSQUARE.app */;
@@ -321,6 +330,7 @@
 			packageReferences = (
 				174768FD27D3546300AE1B0A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				170C20E027D78F8400F84431 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				1786D6CE27E9C0F400121C70 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 17C44DDB27CE3A1F009EDF46 /* Products */;
 			projectDirPath = "";
@@ -343,9 +353,9 @@
 				17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */,
 				174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */,
 				17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */,
-				174A1E0F27CEEB4800CDD3AC /* HistoryViewController.xib in Resources */,
 				172DFD3227E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib in Resources */,
 				17C44DF527CE3B2B009EDF46 /* HomeViewController.xib in Resources */,
+				17AEFB0427EB3EB50040F7FA /* FavouriteViewController.xib in Resources */,
 				172DFD1F27DF324600F261C7 /* PlaceDetailCollectionReusableView.xib in Resources */,
 				174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */,
 				172DFD2A27DFAB0D00F261C7 /* PhotoPlaceCell.xib in Resources */,
@@ -365,17 +375,19 @@
 				174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */,
 				174768FC27D353FC00AE1B0A /* Places.swift in Sources */,
 				172DFD1E27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift in Sources */,
+				17AEFB0327EB3EB50040F7FA /* FavouriteViewController.swift in Sources */,
 				17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */,
 				172DFD2D27DFB8A500F261C7 /* TipPlaceCell.swift in Sources */,
 				172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */,
 				172DFD2227DF876A00F261C7 /* InfoPlaceCell.swift in Sources */,
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
+				1786D6D527E9D3E800121C70 /* FavoritePlaceItem.swift in Sources */,
 				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
 				17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */,
-				174A1E0E27CEEB4800CDD3AC /* HistoryViewController.swift in Sources */,
 				174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */,
 				172DFD2927DFAB0D00F261C7 /* PhotoPlaceCell.swift in Sources */,
+				17AEFB0627EB6A520040F7FA /* DetailPlace.swift in Sources */,
 				17C44DF427CE3B2B009EDF46 /* HomeViewController.swift in Sources */,
 				174A1E2827CF39AB00CDD3AC /* PlaceTableViewCell.swift in Sources */,
 			);
@@ -615,6 +627,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		1786D6CE27E9C0F400121C70 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -642,6 +662,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 170C20E027D78F8400F84431 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
+		};
+		1786D6CF27E9C0F400121C70 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1786D6CE27E9C0F400121C70 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

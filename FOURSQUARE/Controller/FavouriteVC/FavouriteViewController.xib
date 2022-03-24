@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="FOURSQUARE" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavouriteViewController" customModule="FOURSQUARE" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="Wbr-N4-Zrr" id="iNs-c4-jgg"/>
+                <outlet property="tableView" destination="BGn-fj-MQJ" id="HX7-dS-yXv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,20 +19,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wbr-N4-Zrr">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BGn-fj-MQJ">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Wbr-N4-Zrr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6rW-w8-2d6"/>
-                <constraint firstItem="Wbr-N4-Zrr" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Txd-KC-s9k"/>
-                <constraint firstItem="Wbr-N4-Zrr" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zhs-01-Esg"/>
-                <constraint firstItem="Wbr-N4-Zrr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="wTK-ZR-7Cx"/>
+                <constraint firstItem="BGn-fj-MQJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dY9-ea-f8M"/>
+                <constraint firstItem="BGn-fj-MQJ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mh2-fP-mtt"/>
+                <constraint firstItem="BGn-fj-MQJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oNe-tx-feY"/>
+                <constraint firstItem="BGn-fj-MQJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="tyj-3J-oR7"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="46.875"/>
+            <point key="canvasLocation" x="131.8840579710145" y="61.607142857142854"/>
         </view>
     </objects>
     <resources>

@@ -56,6 +56,12 @@ class PlaceTableViewCell: UITableViewCell {
         fetchPhotoWith(fsqID: viewModel.fsqID)
     }
 
+    //FavouriteVC
+    func updateWithId(id: String, indexPath: Int) {
+        fetchNDetailPlace(fsqID: id, indexPath: indexPath)
+        fetchPhotoWith(fsqID: id)
+    }
+
     func fetchPhotoWith(fsqID: String) {
         let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/photos"
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
@@ -63,13 +69,31 @@ class PlaceTableViewCell: UITableViewCell {
         AF.request(urlString,
                    method: .get,
                    headers: headers)
-            .validate()
-            .responseDecodable(of: [PlacePhotoElement].self) { responseData in
-                guard let data = responseData.value else { return }
-                if let prefix = data.first?.placePhotoPrefix, let suffix = data.first?.suffix {
-                    let imgURLString = "\(prefix)120x120\(suffix)"
-                    self.placeImageView.sd_setImage(with: URL(string: imgURLString))
-                }
+        .validate()
+        .responseDecodable(of: [PlacePhotoElement].self) { responseData in
+            guard let data = responseData.value else { return }
+            if let prefix = data.first?.placePhotoPrefix, let suffix = data.first?.suffix {
+                let imgURLString = "\(prefix)120x120\(suffix)"
+                self.placeImageView.sd_setImage(with: URL(string: imgURLString))
+            }
+        }
+    }
+
+    func fetchNDetailPlace(fsqID: String, indexPath: Int ) {
+        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
+                                    .accept("application/json")]
+        AF.request("https://api.foursquare.com/v3/places/\(fsqID)",headers: headers)
+            .validate() // added validation
+            .responseDecodable(of: DetailPlace.self) { response in
+                guard let place = response.value else { return }
+                let name = place.name
+                let categories = place.categories.first?.name ?? ""
+                let locality = place.location.locality ?? ""
+                let address = place.location.formattedAddress ?? ""
+                self.titleLabel.text = "\(indexPath+1). \(name)"
+                self.subTitleLabel.text = "\(categories)"
+                self.distanceLabel.text = "\(address)"
+                self.descLabel.text = ""
             }
     }
 }

@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import RealmSwift
 
 struct PlaceDetailViewMode {
     var id: String
@@ -26,9 +27,16 @@ class DetailPlaceInfoViewController: UIViewController {
     var urlPhotosPlaceString: [String] = []
     var tipDetailPlace: [String] = []
 
+    var favouriteButton = UIBarButtonItem()
+
+    var realm = try! Realm()
+    var place = try! Realm().objects(FavoritePlacesItem.self)
+    var isLike: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Detail VC"
+        title = "Detail Place"
+        //navigationController?.navigationBar.backgroundColor = .white
         collectionView.delegate = self
         collectionView.dataSource = self
 
@@ -41,8 +49,77 @@ class DetailPlaceInfoViewController: UIViewController {
         collectionView.register(UINib(nibName: "PlaceDetailCollectionReusableView", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView")
         collectionView.register(UINib(nibName: "HeaderSectionPlaceDetailCell", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell")
 
+        //Realm Delete All Data
+        //                        do {
+        //                            try! realm.write({
+        //                                realm.deleteAll()
+        //                                //self.tableView.reloadData()
+        //                            })
+        //                        } catch {
+        //                            print("Error Delete All Data")
+        //                        }
+
+        let path = realm.configuration.fileURL!.path
+        //print("Path: \(String(describing: path))")
+
+        navBarItemConfig()
+
         fetchPhotoWith(fsqID: self.infoDetailPlace.id)
         fetchTipsWith(fsqID: self.infoDetailPlace.id)
+    }
+
+    func navBarItemConfig() {
+        if place.isEmpty {
+            favouriteButton = UIBarButtonItem(image: UIImage.init(systemName: "heart"), style: .plain, target: self, action: #selector(favouriteAction))
+            navigationItem.rightBarButtonItem = favouriteButton
+        } else {
+            //var hasId: Bool = false
+            for i in 0...(place.count-1) {
+                if place[i].id == infoDetailPlace.id {
+                    isLike = !isLike
+                }
+            }
+            if isLike {
+                favouriteButton = UIBarButtonItem(image: UIImage.init(systemName: "heart.fill"), style: .plain, target: self, action: #selector(favouriteAction))
+                navigationItem.rightBarButtonItem = favouriteButton
+            } else {
+                favouriteButton = UIBarButtonItem(image: UIImage.init(systemName: "heart"), style: .plain, target: self, action: #selector(favouriteAction))
+                navigationItem.rightBarButtonItem = favouriteButton
+            }
+        }
+
+    }
+
+    @objc func favouriteAction() {
+        if isLike {
+            var indexDel = 0
+            for i in 0...(place.count-1) {
+                if place[i].id == infoDetailPlace.id {
+                    indexDel = i
+                }
+            }
+            do {
+                try! self.realm.write({
+                    self.realm.delete(place[indexDel])
+                })
+            } catch {
+                print("Error Delete Data")
+            }
+
+            favouriteButton.image = UIImage.init(systemName: "heart")
+            isLike = !isLike
+        } else {
+            let newPlace = FavoritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category)
+            do {
+                try! self.realm.write({
+                    self.realm.add(newPlace)
+                })
+            } catch {
+                print("Error Add Data")
+            }
+            favouriteButton.image = UIImage.init(systemName: "heart.fill")
+            isLike = !isLike
+        }
     }
 }
 
@@ -117,7 +194,6 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView", for: indexPath) as! PlaceDetailCollectionReusableView
                         headerView.titleLabel.text = self.infoDetailPlace.name
                         headerView.subTitleLabel.text = self.infoDetailPlace.category
-                        //headerView.imageView.sd_setImage(with: URL(string: self.imgURLBannerString))
                         headerView.fetchPhotoWith(fsqID: self.infoDetailPlace.id)
                         return headerView
                     default:
@@ -185,7 +261,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
                 return CGSize(width: 0, height: 0)
             case 1:
                 let screenWidth = UIScreen.main.bounds.width - 20 - 20
-                return CGSize(width: screenWidth, height: screenWidth*0.44)
+                return CGSize(width: screenWidth, height: screenWidth*0.5)
             case 2:
                 let screenWidth = UIScreen.main.bounds.width - 20 - 20 - 10
                 return CGSize(width: screenWidth/2, height: screenWidth/2)
@@ -207,21 +283,21 @@ extension DetailPlaceInfoViewController {
         AF.request(urlString,
                    method: .get,
                    headers: headers)
-            .validate()
-            .responseDecodable(of: [PlacePhotoElement].self) { responseData in
-                guard let data = responseData.value else { return }
-                if data.count != 0 {
-                    for i in 0...(data.count-1) {
-                        let prefix = data[i].placePhotoPrefix
-                        let suffix = data[i].suffix
-                        let imgURLString = "\(prefix)600x600\(suffix)"
-                        self.urlPhotosPlaceString.append(imgURLString)
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
+        .validate()
+        .responseDecodable(of: [PlacePhotoElement].self) { responseData in
+            guard let data = responseData.value else { return }
+            if data.count != 0 {
+                for i in 0...(data.count-1) {
+                    let prefix = data[i].placePhotoPrefix
+                    let suffix = data[i].suffix
+                    let imgURLString = "\(prefix)600x600\(suffix)"
+                    self.urlPhotosPlaceString.append(imgURLString)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
                 }
             }
+        }
     }
 
     func fetchTipsWith(fsqID: String) {
@@ -231,19 +307,19 @@ extension DetailPlaceInfoViewController {
         AF.request(urlString,
                    method: .get,
                    headers: headers)
-            .validate()
-            .responseDecodable(of: [PlaceTipElement].self) { responseData in
-                guard let data = responseData.value else { return }
-                if data.count != 0 {
-                    for i in 0...(data.count-1) {
-                        let tip = data[i].text
-                        self.tipDetailPlace.append(tip)
-                    }
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
+        .validate()
+        .responseDecodable(of: [PlaceTipElement].self) { responseData in
+            guard let data = responseData.value else { return }
+            if data.count != 0 {
+                for i in 0...(data.count-1) {
+                    let tip = data[i].text
+                    self.tipDetailPlace.append(tip)
+                }
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
                 }
             }
+        }
     }
 }
 
@@ -253,5 +329,3 @@ extension DetailPlaceInfoViewController: InfoPlaceCellDelegate {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
-
-

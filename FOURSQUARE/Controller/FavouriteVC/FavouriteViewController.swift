@@ -1,70 +1,83 @@
 //
-//  ListSearchViewController.swift
+//  FavouriteViewController.swift
 //  FOURSQUARE
 //
-//  Created by Van Ngoc Duc on 02/03/2022.
+//  Created by Van Ngoc Duc on 23/03/2022.
 //
-
 import UIKit
-import Alamofire //1
+import Alamofire
+import SDWebImage
+import RealmSwift
 
-class ListSearchViewController: UIViewController {
+class FavouriteViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var resultPlace : [Result] = []
+    var detailPlace : [Result] = []
+
+    var realm = try! Realm()
+    var place = try! Realm().objects(FavoritePlacesItem.self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Favourite Places"
+
+        //TableView
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
-        fetchNearByPlaces()
+
+        //Realm
+        let path = realm.configuration.fileURL!.path
+        print("Path: \(String(describing: path))")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
-extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
+extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultPlace.count
+        return place.count
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
-        let item = resultPlace[indexPath.row]
-        let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
-        cell.updateWith(cellViewModel)
+        let idPlace = place[indexPath.row].id
+        cell.updateWithId(id: idPlace, indexPath: indexPath.row)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = resultPlace[indexPath.row]
+
+        let idPlace = place[indexPath.row].id
+        print("Row is Click: \(idPlace)")
+        fetchNDetailPlace(fsqID: idPlace)
+        let item = detailPlace.first!
         let vc = DetailPlaceInfoViewController()
         vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "", latidute: item.geocodes.main.latitude, longitude: item.geocodes.main.longitude)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
-
 }
-//MARK: -Extension ListSearchViewController
-extension ListSearchViewController {
-    //MARK: -func fetchNearByPlaces()
-    func fetchNearByPlaces(){
-        let parameters = ["ll" : "16.0470,108.2062"] //Lat, Long of Da Nang
+
+
+extension FavouriteViewController {
+    //MARK: Load API Detail Place
+    func fetchNDetailPlace(fsqID: String) {
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
                                     .accept("application/json")]
-
-        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: headers)
+        AF.request("https://api.foursquare.com/v3/places/\(fsqID)",headers: headers)
             .validate() // added validation
-            .responseDecodable(of: Place.self) { response in
+            .responseDecodable(of: [Result].self) { response in
                 guard let place = response.value else { return }
-                self.resultPlace = place.results
+                self.detailPlace = place
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
     }
 }
-
 

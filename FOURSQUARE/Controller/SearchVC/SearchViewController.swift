@@ -11,15 +11,17 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search Place"
+        title = "Search Places "
+
+        //Cònig Navigation Bar Item
+        navBarItemConfig()
 
         //searchController
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Places"
+        searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-
         searchController.searchBar.delegate = self
 
         //tableView
@@ -30,7 +32,17 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
 
-    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+    func navBarItemConfig() {
+        navigationController?.navigationBar.backgroundColor = .white
+        let rightButton = UIBarButtonItem(image: UIImage.init(systemName: "map"), style: .plain, target: self, action: #selector(rightAction))
+        navigationItem.rightBarButtonItem = rightButton
+    }
+
+    @objc func rightAction() {
+        print("Did tap")
+    }
+
+    func filterContentForSearchText(_ searchText: String) {
         filterPlaces = resultPlace.filter({ result in
             return result.name.lowercased().contains(searchText.lowercased())
         })
@@ -51,6 +63,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
+
+        
         if searchController.isActive && searchController.searchBar.text != nil {
             let item = filterPlaces[indexPath.row]
             let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
@@ -60,13 +74,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailPlaceInfoViewController()
-
         if searchController.isActive && searchController.searchBar.text != "" {
             let item = filterPlaces[indexPath.row]
+            let vc = DetailPlaceInfoViewController()
             vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "", latidute: item.geocodes.main.latitude, longitude: item.geocodes.main.longitude)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
-      self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -81,7 +94,7 @@ extension SearchViewController: UISearchResultsUpdating{
 //MARK: - SearchViewController: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        fetchNearByPlaces()
+        //TODO
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -89,6 +102,8 @@ extension SearchViewController: UISearchBarDelegate {
         searchController.searchBar.resignFirstResponder()
         tableView.reloadData()
     }
+
+
 }
 
 //MARK: -ListSearchViewController API
