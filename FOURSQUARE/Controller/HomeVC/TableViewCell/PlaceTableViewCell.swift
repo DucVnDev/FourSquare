@@ -88,8 +88,8 @@ class PlaceTableViewCell: UITableViewCell {
                 guard let place = response.value else { return }
                 let name = place.name
                 let categories = place.categories.first?.name ?? ""
-                let locality = place.location.locality ?? ""
-                let address = place.location.formattedAddress ?? ""
+                //let locality = place.location.locality ?? ""
+                let address = place.location.formattedAddress
                 self.titleLabel.text = "\(indexPath+1). \(name)"
                 self.subTitleLabel.text = "\(categories)"
                 self.distanceLabel.text = "\(address)"

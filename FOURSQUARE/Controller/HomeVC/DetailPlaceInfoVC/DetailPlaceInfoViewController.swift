@@ -36,11 +36,10 @@ class DetailPlaceInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail Place"
-        //navigationController?.navigationBar.backgroundColor = .white
+
+        //Collectionview
         collectionView.delegate = self
         collectionView.dataSource = self
-
-        //register Cell
         collectionView.register(UINib(nibName: "InfoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "InfoPlaceCell")
         collectionView.register(UINib(nibName: "PhotoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "PhotoPlaceCell")
         collectionView.register(UINib(nibName: "TipPlaceCell", bundle: .main), forCellWithReuseIdentifier: "TipPlaceCell")
@@ -49,21 +48,14 @@ class DetailPlaceInfoViewController: UIViewController {
         collectionView.register(UINib(nibName: "PlaceDetailCollectionReusableView", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView")
         collectionView.register(UINib(nibName: "HeaderSectionPlaceDetailCell", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell")
 
-        //Realm Delete All Data
-        //                        do {
-        //                            try! realm.write({
-        //                                realm.deleteAll()
-        //                                //self.tableView.reloadData()
-        //                            })
-        //                        } catch {
-        //                            print("Error Delete All Data")
-        //                        }
-
+        //Realm
         let path = realm.configuration.fileURL!.path
-        //print("Path: \(String(describing: path))")
+        print("Path: \(String(describing: path))")
 
+        //NagivationBar Configure
         navBarItemConfig()
 
+        //Load API
         fetchPhotoWith(fsqID: self.infoDetailPlace.id)
         fetchTipsWith(fsqID: self.infoDetailPlace.id)
     }
@@ -105,11 +97,10 @@ class DetailPlaceInfoViewController: UIViewController {
             } catch {
                 print("Error Delete Data")
             }
-
             favouriteButton.image = UIImage.init(systemName: "heart")
             isLike = !isLike
         } else {
-            let newPlace = FavoritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category)
+            let newPlace = FavoritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category, latitude: infoDetailPlace.latidute, longitude: infoDetailPlace.longitude)
             do {
                 try! self.realm.write({
                     self.realm.add(newPlace)
@@ -123,6 +114,7 @@ class DetailPlaceInfoViewController: UIViewController {
     }
 }
 
+//MARK: -DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource
 extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
@@ -325,7 +317,6 @@ extension DetailPlaceInfoViewController {
 
 extension DetailPlaceInfoViewController: InfoPlaceCellDelegate {
     func InfoPlaceCellDelegate(viewController: UIViewController) {
-        print("Da nhan tin hieu")
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

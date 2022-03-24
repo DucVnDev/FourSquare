@@ -21,7 +21,9 @@ class FavouriteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favourite Places"
-
+        //navigationBar
+        let rightButton = UIBarButtonItem(title: "Delete All", style: .plain, target: self, action: #selector(rightAction))
+        navigationItem.rightBarButtonItem = rightButton
         //TableView
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
@@ -34,6 +36,18 @@ class FavouriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+    }
+
+    @objc func rightAction() {
+        //Realm Delete All Data
+        do {
+            try! realm.write({
+                realm.deleteAll()
+                self.tableView.reloadData()
+            })
+        } catch {
+            print("Error Delete All Data")
+        }
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
@@ -52,32 +66,8 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let idPlace = place[indexPath.row].id
-        print("Row is Click: \(idPlace)")
-        fetchNDetailPlace(fsqID: idPlace)
-        let item = detailPlace.first!
         let vc = DetailPlaceInfoViewController()
-        vc.infoDetailPlace = PlaceDetailViewMode(id: item.fsqID, name: item.name, address: item.location.formattedAddress, category: item.categories.first?.name ?? "", latidute: item.geocodes.main.latitude, longitude: item.geocodes.main.longitude)
+        vc.infoDetailPlace = PlaceDetailViewMode(id: place[indexPath.row].id, name: place[indexPath.row].name ?? "", address: place[indexPath.row].address ?? "", category: place[indexPath.row].category ?? "", latidute: place[indexPath.row].latitude ?? 0, longitude: place[indexPath.row].longitude ?? 0)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
-extension FavouriteViewController {
-    //MARK: Load API Detail Place
-    func fetchNDetailPlace(fsqID: String) {
-        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                    .accept("application/json")]
-        AF.request("https://api.foursquare.com/v3/places/\(fsqID)",headers: headers)
-            .validate() // added validation
-            .responseDecodable(of: [Result].self) { response in
-                guard let place = response.value else { return }
-                self.detailPlace = place
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-    }
-}
-
