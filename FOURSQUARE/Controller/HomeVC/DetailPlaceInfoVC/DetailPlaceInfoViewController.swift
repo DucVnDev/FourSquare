@@ -50,7 +50,7 @@ class DetailPlaceInfoViewController: UIViewController {
 
         //Realm
         let path = realm.configuration.fileURL!.path
-        print("Path: \(String(describing: path))")
+        //print("Path: \(String(describing: path))")
 
         //NagivationBar Configure
         navBarItemConfig()
@@ -146,6 +146,7 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegate, UICollectionV
                 cell.categoryLabel.text = item.category
                 cell.latitude = item.latidute
                 cell.longitude = item.longitude
+                cell.name = item.name
                 cell.delegate = self
                 return cell
 

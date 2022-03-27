@@ -25,9 +25,9 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="NrC-65-Tg2">
-                        <rect key="frame" x="80" y="9" width="85.5" height="54.5"/>
+                        <rect key="frame" x="80" y="9" width="230" height="54.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIX ON SIX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YI-3D-SIb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIX ON SIX" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YI-3D-SIb">
                                 <rect key="frame" x="0.0" y="0.0" width="85.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" systemColor="linkColor"/>
@@ -39,7 +39,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,5km Đà Nẵng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMj-DP-x5D">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,5km Đà Nẵng" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMj-DP-x5D">
                                 <rect key="frame" x="0.0" y="40" width="84" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -60,6 +60,7 @@
                     <constraint firstItem="C6H-rs-Mco" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="7by-PJ-o6A"/>
                     <constraint firstItem="hxg-TE-oYi" firstAttribute="leading" secondItem="C6H-rs-Mco" secondAttribute="leading" id="E3R-pd-TES"/>
                     <constraint firstItem="NrC-65-Tg2" firstAttribute="top" secondItem="C6H-rs-Mco" secondAttribute="top" id="FAh-4f-SWq"/>
+                    <constraint firstAttribute="trailing" secondItem="NrC-65-Tg2" secondAttribute="trailing" constant="10" id="Mhw-Xb-2Hv"/>
                     <constraint firstItem="NrC-65-Tg2" firstAttribute="leading" secondItem="C6H-rs-Mco" secondAttribute="trailing" constant="10" id="aLZ-Ll-BB2"/>
                     <constraint firstItem="hxg-TE-oYi" firstAttribute="top" secondItem="C6H-rs-Mco" secondAttribute="bottom" constant="10" id="rAc-YR-7dv"/>
                     <constraint firstItem="C6H-rs-Mco" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="sW7-JH-ClP"/>

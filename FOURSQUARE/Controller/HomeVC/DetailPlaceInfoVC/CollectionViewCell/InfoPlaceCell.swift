@@ -20,6 +20,7 @@ class InfoPlaceCell: UICollectionViewCell {
     @IBOutlet weak var directionBtn: UIButton!
 
     weak var delegate : InfoPlaceCellDelegate?
+    var name: String = ""
     var latitude: Double?
     var longitude: Double?
     override func awakeFromNib() {
@@ -32,6 +33,7 @@ class InfoPlaceCell: UICollectionViewCell {
         let mapVC = MapingViewController()
         mapVC.latitude = self.latitude!
         mapVC.longitude = self.longitude!
+        mapVC.titlePin = self.name
         delegate?.InfoPlaceCellDelegate(viewController: mapVC)
 
     }

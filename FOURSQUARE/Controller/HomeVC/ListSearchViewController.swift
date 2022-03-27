@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire //1
+import CoreLocation
 
 class ListSearchViewController: UIViewController {
 
@@ -14,14 +15,25 @@ class ListSearchViewController: UIViewController {
 
     var resultPlace : [Result] = []
 
+    var manager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "List Places Near Me"
+
+        //tableView
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        fetchNearByPlaces()
+
+        //Get my Location
+        guard let sourceCoordinate = manager.location?.coordinate else { return }
+        print(sourceCoordinate.latitude, sourceCoordinate.longitude)
+
+        //Load API nearby Place
+        fetchNearByPlaces(latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
@@ -50,8 +62,8 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: -Extension ListSearchViewController
 extension ListSearchViewController {
     //MARK: -func fetchNearByPlaces()
-    func fetchNearByPlaces(){
-        let parameters = ["ll" : "16.0470,108.2062"] //Lat, Long of Da Nang
+    func fetchNearByPlaces(latitude: String, longitude: String){
+        let parameters = ["ll" : "\(latitude),\(longitude)"] //Lat, Long of Da Nang
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
                                     .accept("application/json")]
 
@@ -66,5 +78,3 @@ extension ListSearchViewController {
             }
     }
 }
-
-

@@ -1,5 +1,6 @@
 import UIKit
 import Alamofire //1
+import CoreLocation
 
 class SearchViewController: UIViewController {
 
@@ -9,9 +10,11 @@ class SearchViewController: UIViewController {
     var resultPlace : [Result] = []
     var filterPlaces : [Result] = []
 
+    var manager = CLLocationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search Places "
+        title = "Search Places Near Me "
 
         //Cònig Navigation Bar Item
         navBarItemConfig()
@@ -64,7 +67,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
 
-        
         if searchController.isActive && searchController.searchBar.text != nil {
             let item = filterPlaces[indexPath.row]
             let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
@@ -87,7 +89,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 extension SearchViewController: UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
-        fetchNearByPlaces()
+        //Get my Location
+        guard let sourceCoordinate = manager.location?.coordinate else { return }
+        print(sourceCoordinate.latitude, sourceCoordinate.longitude)
+
+        //Load API nearby Place
+        fetchNearByPlaces(latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
     }
 }
 
@@ -109,8 +116,8 @@ extension SearchViewController: UISearchBarDelegate {
 //MARK: -ListSearchViewController API
 extension SearchViewController {
     //MARK: -func fetchNearByPlaces()
-    func fetchNearByPlaces(){
-        let parameters = ["ll" : "16.0470,108.2062"] //Lat, Long of Da Nang
+    func fetchNearByPlaces(latitude: String, longitude: String){
+        let parameters = ["ll" : "\(latitude),\(longitude)"] //Lat, Long of Da Nang
         let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
                                     .accept("application/json")]
 

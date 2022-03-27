@@ -17,6 +17,7 @@ class MapingViewController: UIViewController {
 
     var latitude: Double = 0
     var longitude: Double = 0
+    var titlePin: String = ""
     let manager = CLLocationManager()
 
     override func viewDidLoad() {
@@ -25,9 +26,8 @@ class MapingViewController: UIViewController {
 
         mapView.delegate = self
 
-        print(latitude, longitude)
         let destination = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        addPin(coordinate: destination, title: "Point 01", subTitle: "Test Demo")
+        addPin(coordinate: destination, title: titlePin, subTitle: "")
         mapThis(_destinationCoordinate: destination)
     }
 
@@ -63,7 +63,7 @@ class MapingViewController: UIViewController {
     }
     func mapThis(_destinationCoordinate: CLLocationCoordinate2D) {
         guard let sourceCoordinate = manager.location?.coordinate else { return }
-
+        //print(sourceCoordinate.latitude, sourceCoordinate.longitude)
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: sourceCoordinate))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: _destinationCoordinate))

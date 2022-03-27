@@ -31,7 +31,7 @@ class FavouriteViewController: UIViewController {
 
         //Realm
         let path = realm.configuration.fileURL!.path
-        print("Path: \(String(describing: path))")
+        //print("Path: \(String(describing: path))")
     }
 
     override func viewWillAppear(_ animated: Bool) {
