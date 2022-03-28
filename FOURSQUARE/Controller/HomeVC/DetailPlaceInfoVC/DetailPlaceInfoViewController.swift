@@ -54,10 +54,28 @@ class DetailPlaceInfoViewController: UIViewController {
 
         //NagivationBar Configure
         navBarItemConfig()
+        print("Is Like viewDidLoad: \(isLike)")
 
         //Load API
         fetchPhotoWith(fsqID: self.infoDetailPlace.id)
         fetchTipsWith(fsqID: self.infoDetailPlace.id)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        if place.isEmpty {
+            print("Database empty")
+            favouriteButton.image = UIImage.init(systemName: "heart")
+            isLike = false
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        print("Is Like viewWillDisappear: \(isLike)")
+        if place.isEmpty {
+            print("Database empty")
+            favouriteButton.image = UIImage.init(systemName: "heart")
+            isLike = false
+        }
     }
 
     func navBarItemConfig() {
@@ -68,7 +86,7 @@ class DetailPlaceInfoViewController: UIViewController {
             //var hasId: Bool = false
             for i in 0...(place.count-1) {
                 if place[i].id == infoDetailPlace.id {
-                    isLike = !isLike
+                    isLike = !isLike  //true
                 }
             }
             if isLike {
@@ -98,7 +116,7 @@ class DetailPlaceInfoViewController: UIViewController {
                 print("Error Delete Data")
             }
             favouriteButton.image = UIImage.init(systemName: "heart")
-            isLike = !isLike
+            isLike = !isLike //false
         } else {
             let newPlace = FavoritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category, latitude: infoDetailPlace.latidute, longitude: infoDetailPlace.longitude)
             do {
@@ -109,7 +127,7 @@ class DetailPlaceInfoViewController: UIViewController {
                 print("Error Add Data")
             }
             favouriteButton.image = UIImage.init(systemName: "heart.fill")
-            isLike = !isLike
+            isLike = !isLike //true
         }
     }
 }

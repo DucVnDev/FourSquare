@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         } else {
             //if user isn't logged in
-            let vc = WelcomeViewController()
+            let vc = MeLoginViewController()
             window?.rootViewController = UINavigationController(rootViewController: vc)
             window?.makeKeyAndVisible()
         }
@@ -79,7 +79,9 @@ class MainTabBarController: UITabBarController {
         let meVC = UINavigationController(rootViewController: MeViewController())
         meVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
 
-        setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
+            setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
+
+
     }
 }
 

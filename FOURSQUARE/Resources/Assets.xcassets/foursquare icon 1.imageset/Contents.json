@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "foursquare-logo-foursquare-logo-background-text-symbol-trademark-number-transparent-png-741433.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -34,6 +34,8 @@
 		174A1E2D27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */; };
 		1759C48827E4882300C18102 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48727E4882300C18102 /* SDWebImage */; };
 		1759C48A27E4882300C18102 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1759C48927E4882300C18102 /* SDWebImageMapKit */; };
+		175E343027F17CA1000F7B75 /* MeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175E342E27F17CA1000F7B75 /* MeLoginViewController.swift */; };
+		175E343127F17CA1000F7B75 /* MeLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 175E342F27F17CA1000F7B75 /* MeLoginViewController.xib */; };
 		1786D6D027E9C0F400121C70 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1786D6CF27E9C0F400121C70 /* RealmSwift */; };
 		1786D6D527E9D3E800121C70 /* FavoritePlaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */; };
 		17AEFB0327EB3EB50040F7FA /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */; };
@@ -84,6 +86,8 @@
 		174A1E2727CF39AB00CDD3AC /* PlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceTableViewCell.xib; sourceTree = "<group>"; };
 		174A1E2A27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceInfoViewController.swift; sourceTree = "<group>"; };
 		174A1E2B27CF4C3900CDD3AC /* DetailPlaceInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailPlaceInfoViewController.xib; sourceTree = "<group>"; };
+		175E342E27F17CA1000F7B75 /* MeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLoginViewController.swift; sourceTree = "<group>"; };
+		175E342F27F17CA1000F7B75 /* MeLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeLoginViewController.xib; sourceTree = "<group>"; };
 		1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePlaceItem.swift; sourceTree = "<group>"; };
 		17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 				17AEFB0C27EC7B5D0040F7FA /* LoginViewController.xib */,
 				17AEFB1327EC83480040F7FA /* SignUpViewController.swift */,
 				17AEFB1427EC83480040F7FA /* SignUpViewController.xib */,
+				175E342E27F17CA1000F7B75 /* MeLoginViewController.swift */,
+				175E342F27F17CA1000F7B75 /* MeLoginViewController.xib */,
 			);
 			path = "Login VC";
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				174A1E2927CF39AB00CDD3AC /* PlaceTableViewCell.xib in Resources */,
 				172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */,
 				17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */,
+				175E343127F17CA1000F7B75 /* MeLoginViewController.xib in Resources */,
 				174A1E1C27CF341B00CDD3AC /* ListSearchViewController.xib in Resources */,
 				17C44DE727CE3A22009EDF46 /* Assets.xcassets in Resources */,
 				172DFD3227E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib in Resources */,
@@ -435,6 +442,7 @@
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
 				1786D6D527E9D3E800121C70 /* FavoritePlaceItem.swift in Sources */,
+				175E343027F17CA1000F7B75 /* MeLoginViewController.swift in Sources */,
 				1713905027DCDCF100E16ADD /* PlaceTipElement.swift in Sources */,
 				17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */,
 				174A1E1B27CF341B00CDD3AC /* ListSearchViewController.swift in Sources */,

@@ -17,13 +17,21 @@ class FavouriteViewController: UIViewController {
 
     var realm = try! Realm()
     var place = try! Realm().objects(FavoritePlacesItem.self)
+    var rightButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Favourite"
         //navigationBar
-        let rightButton = UIBarButtonItem(title: "Delete All", style: .plain, target: self, action: #selector(rightAction))
-        navigationItem.rightBarButtonItem = rightButton
+        rightButton = UIBarButtonItem(title: "Delete All", style: .plain, target: self, action: #selector(rightAction))
+
+        if realm.isEmpty {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItem = rightButton
+        }
+
         //TableView
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
@@ -36,6 +44,12 @@ class FavouriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        if realm.isEmpty {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            navigationItem.rightBarButtonItem = rightButton
+        }
     }
 
     @objc func rightAction() {
@@ -48,6 +62,7 @@ class FavouriteViewController: UIViewController {
         } catch {
             print("Error Delete All Data")
         }
+        navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeLoginViewController" customModule="FOURSQUARE" customModuleProvider="target">
+            <connections>
+                <outlet property="loginFbBtn" destination="bkI-eD-Apf" id="pH2-wg-aSX"/>
+                <outlet property="skipBtn" destination="Dbk-Ax-qUi" id="1py-7M-Leb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewWelcome" destination="R8z-ED-4Jy" id="uEp-bY-JKc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9J6-nC-Q89">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foursquare icon 1" translatesAutoresizingMaskIntoConstraints="NO" id="1li-6S-iuq">
+                    <rect key="frame" x="20" y="164" width="374" height="69"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="69" id="2UV-IU-jZn"/>
+                        <constraint firstAttribute="width" secondItem="1li-6S-iuq" secondAttribute="height" multiplier="374:69" id="ZXS-WX-Msb"/>
+                    </constraints>
+                </imageView>
+                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8z-ED-4Jy">
+                    <rect key="frame" x="20" y="253" width="374" height="144"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Foursquare App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnF-tB-bu4">
+                            <rect key="frame" x="10" y="25" width="354" height="33.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="28"/>
+                            <color key="textColor" red="0.97487050289999999" green="0.2820065618" blue="0.4686313272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="highlightedColor" red="0.97487050289999999" green="0.2820065618" blue="0.4686313272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foursquare learns what you like and leads you to places you'll love" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWG-pM-7dc">
+                            <rect key="frame" x="10" y="73.5" width="354" height="38.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="nnF-tB-bu4" firstAttribute="leading" secondItem="R8z-ED-4Jy" secondAttribute="leading" constant="10" id="Ft4-d8-5pF"/>
+                        <constraint firstItem="gWG-pM-7dc" firstAttribute="leading" secondItem="R8z-ED-4Jy" secondAttribute="leading" constant="10" id="ILQ-ah-bP5"/>
+                        <constraint firstAttribute="trailing" secondItem="gWG-pM-7dc" secondAttribute="trailing" constant="10" id="UJG-mB-oDN"/>
+                        <constraint firstItem="nnF-tB-bu4" firstAttribute="top" secondItem="R8z-ED-4Jy" secondAttribute="top" constant="25" id="ZaY-Ef-F7u"/>
+                        <constraint firstAttribute="width" secondItem="R8z-ED-4Jy" secondAttribute="height" multiplier="187:72" id="nqs-2f-gkI"/>
+                        <constraint firstAttribute="trailing" secondItem="nnF-tB-bu4" secondAttribute="trailing" constant="10" id="tQu-r3-Hig"/>
+                        <constraint firstItem="gWG-pM-7dc" firstAttribute="top" secondItem="nnF-tB-bu4" secondAttribute="bottom" constant="15" id="z2P-pr-WXN"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rKE-DK-AAe">
+                    <rect key="frame" x="30" y="616" width="354" height="96"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbk-Ax-qUi">
+                            <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="E5n-r1-SiP"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Skip sign up">
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="skipBtnDidTap:" destination="-1" eventType="touchUpInside" id="SR9-fM-UBj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkI-eD-Apf">
+                            <rect key="frame" x="0.0" y="56" width="354" height="40"/>
+                            <color key="backgroundColor" red="0.2391682863" green="0.35295039420000002" blue="0.5960666537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="RKy-sT-i0C"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="systemBlueColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="facebookIcon32px" title="Log in with Facebook">
+                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="loginFbBtnDidTap:" destination="-1" eventType="touchUpInside" id="SZr-tt-tVY"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll never post to Facebook without permission. By using Foursquare, you agree to the Terms, Cookie Policy, and Privacy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULq-v7-eM7">
+                    <rect key="frame" x="10" y="823" width="394" height="29"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="R8z-ED-4Jy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="2PV-f8-ssq"/>
+                <constraint firstItem="1li-6S-iuq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="120" id="9GM-95-pQY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="rKE-DK-AAe" secondAttribute="bottom" constant="150" id="9gf-fb-Id9"/>
+                <constraint firstItem="R8z-ED-4Jy" firstAttribute="top" secondItem="1li-6S-iuq" secondAttribute="bottom" constant="20" id="BEq-m3-aMG"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9J6-nC-Q89" secondAttribute="trailing" id="KI1-9O-0cN"/>
+                <constraint firstItem="1li-6S-iuq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Lip-VM-CzE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rKE-DK-AAe" secondAttribute="trailing" constant="30" id="NHt-j8-1eM"/>
+                <constraint firstItem="9J6-nC-Q89" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aen-AM-Zde"/>
+                <constraint firstItem="9J6-nC-Q89" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eil-bW-bbl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="R8z-ED-4Jy" secondAttribute="trailing" constant="20" id="fyy-JH-hbX"/>
+                <constraint firstItem="9J6-nC-Q89" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="lZv-e5-8VJ"/>
+                <constraint firstItem="ULq-v7-eM7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="pzy-c4-8kO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ULq-v7-eM7" secondAttribute="bottom" constant="10" id="rsu-Kx-pPe"/>
+                <constraint firstItem="rKE-DK-AAe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="upX-Uo-ib0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ULq-v7-eM7" secondAttribute="trailing" constant="10" id="yQ4-sN-9Dg"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="130.58035714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="1440" height="1800"/>
+        <image name="facebookIcon32px" width="32" height="32"/>
+        <image name="foursquare icon 1" width="1205" height="184"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
