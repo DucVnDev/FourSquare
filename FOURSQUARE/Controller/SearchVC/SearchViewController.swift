@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search Places Near Me "
+        title = "Search"
 
         //Cònig Navigation Bar Item
         navBarItemConfig()

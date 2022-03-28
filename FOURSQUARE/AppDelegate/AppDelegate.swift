@@ -17,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
-        //window?.rootViewController = TabBarController()
-        window?.makeKeyAndVisible()
+
+        //if user is logges in before
+        if UserDefaults.standard.bool(forKey: "isLogin") {
+            window?.rootViewController = MainTabBarController()
+            window?.makeKeyAndVisible()
+        } else {
+            //if user isn't logged in
+            let vc = WelcomeViewController()
+            window?.rootViewController = UINavigationController(rootViewController: vc)
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -30,10 +38,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options: options
         )
     }
+
+    func changeRootViewController(_ vc: UIViewController, animated: Bool = true, loginVC: Bool) {
+        guard let window = self.window else {
+            return
+        }
+        // change the root view controller to your specific view controller
+        if loginVC {
+            window.rootViewController = UINavigationController(rootViewController: vc)
+        } else {
+            window.rootViewController = vc
+        }
+
+        // add animation
+           UIView.transition(with: window,
+                             duration: 0.5,
+                             options: [.transitionFlipFromLeft],
+                             animations: nil,
+                             completion: nil)
+    }
 }
 
 
-class TabBarController: UITabBarController {
+class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

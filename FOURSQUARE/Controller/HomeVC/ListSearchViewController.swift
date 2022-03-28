@@ -20,6 +20,7 @@ class ListSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "List Places Near Me"
+        
 
         //tableView
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")

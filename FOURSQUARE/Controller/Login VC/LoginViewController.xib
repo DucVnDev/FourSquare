@@ -13,7 +13,6 @@
                 <outlet property="emailTextField" destination="9Xy-j5-aC4" id="5ts-Te-yPN"/>
                 <outlet property="fogotBtn" destination="5nK-LL-bHF" id="xtE-RS-QR3"/>
                 <outlet property="loginBtn" destination="iCd-mR-ycX" id="zGJ-eL-r5e"/>
-                <outlet property="messageLabel" destination="HRX-X8-3UJ" id="kzh-Q7-dZM"/>
                 <outlet property="passTextField" destination="S1V-Dj-tQi" id="GeN-de-FDQ"/>
                 <outlet property="signInFbBtn" destination="MJm-so-tPV" id="oLc-q0-NCj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -92,12 +91,6 @@
                         <action selector="signInFbBtnDidTap:" destination="-1" eventType="touchUpInside" id="uLJ-kb-mPt"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRX-X8-3UJ">
-                    <rect key="frame" x="164" y="750" width="86" height="23"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -105,10 +98,8 @@
                 <constraint firstItem="5nK-LL-bHF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="0Ir-Cx-lNO"/>
                 <constraint firstItem="5nK-LL-bHF" firstAttribute="top" secondItem="iCd-mR-ycX" secondAttribute="bottom" constant="20" id="3MR-ip-6HG"/>
                 <constraint firstItem="MJm-so-tPV" firstAttribute="width" secondItem="MJm-so-tPV" secondAttribute="height" multiplier="174:23" id="4X0-JS-8aS"/>
-                <constraint firstItem="HRX-X8-3UJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="4hp-uK-K01"/>
                 <constraint firstItem="TRG-F9-tD3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="A7W-lD-2XW"/>
                 <constraint firstItem="iCd-mR-ycX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="90" id="CzQ-EA-EjT"/>
-                <constraint firstItem="MJm-so-tPV" firstAttribute="top" secondItem="HRX-X8-3UJ" secondAttribute="bottom" constant="22" id="IGO-6M-nwe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="S1V-Dj-tQi" secondAttribute="trailing" constant="40" id="Ivw-gw-7qG"/>
                 <constraint firstItem="TRG-F9-tD3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="Mcv-yG-8YA"/>
                 <constraint firstItem="5nK-LL-bHF" firstAttribute="width" secondItem="5nK-LL-bHF" secondAttribute="height" multiplier="334:65" id="NsG-EL-nor"/>

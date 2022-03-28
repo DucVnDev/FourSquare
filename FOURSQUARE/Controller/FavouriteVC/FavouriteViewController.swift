@@ -20,7 +20,7 @@ class FavouriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Favourite Places"
+        title = "Favourite"
         //navigationBar
         let rightButton = UIBarButtonItem(title: "Delete All", style: .plain, target: self, action: #selector(rightAction))
         navigationItem.rightBarButtonItem = rightButton

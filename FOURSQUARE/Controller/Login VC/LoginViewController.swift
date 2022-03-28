@@ -14,23 +14,24 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var signInFbBtn: UIButton!
-    @IBOutlet weak var messageLabel: UILabel!
+
+
+    let userDefault = UserDefaults.standard
 
     @IBOutlet weak var fogotBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
 
-        //1
-        updateButton(isLoggedIn: (AccessToken.current != nil))
-        updateMessage(with: Profile.current?.name)
 
+        updateButton(isLoggedIn: (AccessToken.current != nil))
+        
         // Observe access token changes
         // This will trigger after successfully login / logout
         NotificationCenter.default.addObserver(forName: .AccessTokenDidChange, object: nil, queue: OperationQueue.main) { (notification) in
 
             // Print out access token
-            print("FB Access Token: \(String(describing: AccessToken.current?.tokenString))")
+        print("FB Access Token: \(String(describing: AccessToken.current?.tokenString))")
         }
     }
 
@@ -83,29 +84,29 @@ class LoginViewController: UIViewController {
         let loginManager = LoginManager()
 
         if let _ = AccessToken.current {
-            loginManager.logOut()
-            updateButton(isLoggedIn: false)
-            updateMessage(with: nil)
+            //TODO
         } else {
-
             loginManager.logIn(permissions: [], from: self) { [weak self] result, error in
                 //Check  for error
                 guard error == nil else {
                     print(error!.localizedDescription)
+                    self?.userDefault.set(false, forKey: "isLogin")
                     return
                 }
 
                 //Check for cancel
                 guard let result = result, !result.isCancelled  else {
+                    self?.userDefault.set(false, forKey: "isLogin")
                     print("User cancelled login")
                     return
                 }
 
                 //Successfully logged in
                 self?.updateButton(isLoggedIn: true)
-                Profile.loadCurrentProfile { (profile, error) in
-                    self?.updateMessage(with: Profile.current?.name)
-                }
+                self?.userDefault.set(true, forKey: "isLogin")
+
+                //Change Root ViewController
+                (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MainTabBarController(), loginVC: false)
             }
         }
     }
@@ -119,17 +120,5 @@ extension LoginViewController {
         // 1
         let title = isLoggedIn ? "Log out" : "Sign in with Facebook"
         signInFbBtn.setTitle(title, for: .normal)
-    }
-
-    private func updateMessage(with name: String?) {
-        // 2
-        guard let name = name else {
-            // User already logged out
-            messageLabel.text = "Please log in with Facebook."
-            return
-        }
-
-        // User already logged in
-        messageLabel.text = "Hello, \(name)!"
     }
 }
