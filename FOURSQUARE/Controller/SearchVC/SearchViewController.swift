@@ -31,7 +31,7 @@ class SearchViewController: UIViewController {
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
 
@@ -91,10 +91,13 @@ extension SearchViewController: UISearchResultsUpdating{
         filterContentForSearchText(searchController.searchBar.text!)
         //Get my Location
         guard let sourceCoordinate = manager.location?.coordinate else { return }
-        print(sourceCoordinate.latitude, sourceCoordinate.longitude)
+        //print(sourceCoordinate.latitude, sourceCoordinate.longitude)
 
         //Load API nearby Place
         fetchNearByPlaces(latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
+
+        //Load API Autocomplete
+        //fetchSearchPlaces(query: searchController.searchBar.text!, latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
     }
 }
 

@@ -32,11 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            options: options
-        )
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
     func changeRootViewController(_ vc: UIViewController, animated: Bool = true, loginVC: Bool) {
@@ -80,8 +76,6 @@ class MainTabBarController: UITabBarController {
         meVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
 
             setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
-
-
     }
 }
 

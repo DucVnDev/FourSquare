@@ -36,6 +36,8 @@ class FavouriteViewController: UIViewController {
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
 
         //Realm
         let path = realm.configuration.fileURL!.path
@@ -46,9 +48,11 @@ class FavouriteViewController: UIViewController {
         tableView.reloadData()
         if realm.isEmpty {
             navigationItem.rightBarButtonItem?.isEnabled = false
+            navigationItem.rightBarButtonItem?.title = ""
         } else {
             navigationItem.rightBarButtonItem?.isEnabled = true
             navigationItem.rightBarButtonItem = rightButton
+            navigationItem.rightBarButtonItem?.title = "Delete All"
         }
     }
 
@@ -63,6 +67,7 @@ class FavouriteViewController: UIViewController {
             print("Error Delete All Data")
         }
         navigationItem.rightBarButtonItem?.isEnabled = false
+        navigationItem.rightBarButtonItem?.title = ""
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
@@ -70,9 +75,9 @@ extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return place.count
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 80
+//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
         let idPlace = place[indexPath.row].id

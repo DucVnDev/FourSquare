@@ -21,7 +21,6 @@
 		172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DFD2F27E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift */; };
 		172DFD3227E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD3027E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib */; };
 		172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */; };
-		173EFB5F27ECD45300E2EFF0 /* AutoComple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173EFB5E27ECD45300E2EFF0 /* AutoComple.swift */; };
 		174768FC27D353FC00AE1B0A /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174768FB27D353FC00AE1B0A /* Places.swift */; };
 		174768FF27D3546300AE1B0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 174768FE27D3546300AE1B0A /* Alamofire */; };
 		174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A1E1127CEECDA00CDD3AC /* MeViewController.swift */; };
@@ -41,12 +40,6 @@
 		17AEFB0327EB3EB50040F7FA /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */; };
 		17AEFB0427EB3EB50040F7FA /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */; };
 		17AEFB0627EB6A520040F7FA /* DetailPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0527EB6A520040F7FA /* DetailPlace.swift */; };
-		17AEFB0D27EC7B5D0040F7FA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0B27EC7B5D0040F7FA /* LoginViewController.swift */; };
-		17AEFB0E27EC7B5D0040F7FA /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AEFB0C27EC7B5D0040F7FA /* LoginViewController.xib */; };
-		17AEFB1127EC7C200040F7FA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB0F27EC7C200040F7FA /* WelcomeViewController.swift */; };
-		17AEFB1227EC7C200040F7FA /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AEFB1027EC7C200040F7FA /* WelcomeViewController.xib */; };
-		17AEFB1527EC83480040F7FA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AEFB1327EC83480040F7FA /* SignUpViewController.swift */; };
-		17AEFB1627EC83480040F7FA /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17AEFB1427EC83480040F7FA /* SignUpViewController.xib */; };
 		17C312F127E87FD5007DE60A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C312EF27E87FD5007DE60A /* SearchViewController.swift */; };
 		17C312F227E87FD5007DE60A /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17C312F027E87FD5007DE60A /* SearchViewController.xib */; };
 		17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C44DDD27CE3A1F009EDF46 /* AppDelegate.swift */; };
@@ -76,7 +69,6 @@
 		172DFD2F27E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderSectionPlaceDetailCell.swift; sourceTree = "<group>"; };
 		172DFD3027E0500F00F261C7 /* HeaderSectionPlaceDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderSectionPlaceDetailCell.xib; sourceTree = "<group>"; };
 		172DFD3627E063B300F261C7 /* InfoPlaceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoPlaceCell.xib; sourceTree = "<group>"; };
-		173EFB5E27ECD45300E2EFF0 /* AutoComple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoComple.swift; sourceTree = "<group>"; };
 		174768FB27D353FC00AE1B0A /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		174A1E1127CEECDA00CDD3AC /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		174A1E1227CEECDA00CDD3AC /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
@@ -92,12 +84,6 @@
 		17AEFB0127EB3EB50040F7FA /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		17AEFB0227EB3EB50040F7FA /* FavouriteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
 		17AEFB0527EB6A520040F7FA /* DetailPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlace.swift; sourceTree = "<group>"; };
-		17AEFB0B27EC7B5D0040F7FA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		17AEFB0C27EC7B5D0040F7FA /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		17AEFB0F27EC7C200040F7FA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		17AEFB1027EC7C200040F7FA /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		17AEFB1327EC83480040F7FA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		17AEFB1427EC83480040F7FA /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		17C312EF27E87FD5007DE60A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		17C312F027E87FD5007DE60A /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		17C44DDA27CE3A1F009EDF46 /* FOURSQUARE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FOURSQUARE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,7 +147,6 @@
 				1713904F27DCDCF100E16ADD /* PlaceTipElement.swift */,
 				1786D6D427E9D3E800121C70 /* FavoritePlaceItem.swift */,
 				17AEFB0527EB6A520040F7FA /* DetailPlace.swift */,
-				173EFB5E27ECD45300E2EFF0 /* AutoComple.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -219,12 +204,6 @@
 		17AEFB0A27EC79730040F7FA /* Login VC */ = {
 			isa = PBXGroup;
 			children = (
-				17AEFB0F27EC7C200040F7FA /* WelcomeViewController.swift */,
-				17AEFB1027EC7C200040F7FA /* WelcomeViewController.xib */,
-				17AEFB0B27EC7B5D0040F7FA /* LoginViewController.swift */,
-				17AEFB0C27EC7B5D0040F7FA /* LoginViewController.xib */,
-				17AEFB1327EC83480040F7FA /* SignUpViewController.swift */,
-				17AEFB1427EC83480040F7FA /* SignUpViewController.xib */,
 				175E342E27F17CA1000F7B75 /* MeLoginViewController.swift */,
 				175E342F27F17CA1000F7B75 /* MeLoginViewController.xib */,
 			);
@@ -259,7 +238,7 @@
 		17C44DDC27CE3A1F009EDF46 /* FOURSQUARE */ = {
 			isa = PBXGroup;
 			children = (
-				17E9F27A27E0E74C008267EF /* MapTutorial */,
+				17E9F27A27E0E74C008267EF /* MapVC */,
 				174A1E2127CF389B00CDD3AC /* Models */,
 				17C44DF127CE3B05009EDF46 /* Controller */,
 				17C44DF727CE601D009EDF46 /* AppDelegate */,
@@ -311,13 +290,13 @@
 			path = HomeVC;
 			sourceTree = "<group>";
 		};
-		17E9F27A27E0E74C008267EF /* MapTutorial */ = {
+		17E9F27A27E0E74C008267EF /* MapVC */ = {
 			isa = PBXGroup;
 			children = (
 				17E9F27B27E0E768008267EF /* MapingViewController.swift */,
 				17E9F27C27E0E768008267EF /* MapingViewController.xib */,
 			);
-			path = MapTutorial;
+			path = MapVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,11 +376,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17AEFB0E27EC7B5D0040F7FA /* LoginViewController.xib in Resources */,
 				174A1E1427CEECDA00CDD3AC /* MeViewController.xib in Resources */,
-				17AEFB1227EC7C200040F7FA /* WelcomeViewController.xib in Resources */,
 				17C44DEA27CE3A22009EDF46 /* LaunchScreen.storyboard in Resources */,
-				17AEFB1627EC83480040F7FA /* SignUpViewController.xib in Resources */,
 				174A1E2927CF39AB00CDD3AC /* PlaceTableViewCell.xib in Resources */,
 				172DFD3727E063B300F261C7 /* InfoPlaceCell.xib in Resources */,
 				17E9F27E27E0E768008267EF /* MapingViewController.xib in Resources */,
@@ -426,18 +402,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17AEFB1527EC83480040F7FA /* SignUpViewController.swift in Sources */,
 				17E9F27D27E0E768008267EF /* MapingViewController.swift in Sources */,
 				174A1E1327CEECDA00CDD3AC /* MeViewController.swift in Sources */,
 				174768FC27D353FC00AE1B0A /* Places.swift in Sources */,
 				172DFD1E27DF324600F261C7 /* PlaceDetailCollectionReusableView.swift in Sources */,
 				17AEFB0327EB3EB50040F7FA /* FavouriteViewController.swift in Sources */,
 				17C44DDE27CE3A1F009EDF46 /* AppDelegate.swift in Sources */,
-				17AEFB1127EC7C200040F7FA /* WelcomeViewController.swift in Sources */,
 				172DFD2D27DFB8A500F261C7 /* TipPlaceCell.swift in Sources */,
 				172B75ED27D49F5900FA128B /* PlacePhotoElement.swift in Sources */,
-				17AEFB0D27EC7B5D0040F7FA /* LoginViewController.swift in Sources */,
-				173EFB5F27ECD45300E2EFF0 /* AutoComple.swift in Sources */,
 				172DFD2227DF876A00F261C7 /* InfoPlaceCell.swift in Sources */,
 				174A1E2C27CF4C3900CDD3AC /* DetailPlaceInfoViewController.swift in Sources */,
 				172DFD3127E0500F00F261C7 /* HeaderSectionPlaceDetailCell.swift in Sources */,
