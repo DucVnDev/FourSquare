@@ -16,6 +16,8 @@ class ListSearchViewController: UIViewController {
     var resultPlace : [Result] = []
 
     var manager = CLLocationManager()
+    var latitude: Double?
+    var longitude: Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +31,28 @@ class ListSearchViewController: UIViewController {
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
 
-        //Get my Location
-        guard let sourceCoordinate = manager.location?.coordinate else { return }
-        print(sourceCoordinate.latitude, sourceCoordinate.longitude)
+        //Get Current Location
+        getCurrentLocation()
 
         //Load API nearby Place
-        fetchNearByPlaces(latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
+        fetchNearByPlaces(latitude: String(self.latitude ?? 0), longitude: String(self.longitude ?? 0))
+    }
+
+    func getCurrentLocation() {
+        //Get my Location
+        manager.desiredAccuracy = kCLLocationAccuracyBest //Battery
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+        guard let sourceCoordinate = manager.location?.coordinate
+        else {
+            print("Error Source Coordinate")
+            return
+        }
+        self.latitude = sourceCoordinate.latitude
+        self.longitude = sourceCoordinate.longitude
+        print(sourceCoordinate.latitude, sourceCoordinate.longitude)
+        
     }
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
@@ -42,7 +60,7 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return resultPlace.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
         let item = resultPlace[indexPath.row]
@@ -60,6 +78,19 @@ extension ListSearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 }
+
+extension ListSearchViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            print("mylocation: \(location.coordinate)")
+            manager.stopUpdatingLocation()
+//            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//            mapView.showsUserLocation = true
+//            mapView.setRegion(region, animated: true)
+        }
+    }
+}
 //MARK: -Extension ListSearchViewController
 extension ListSearchViewController {
     //MARK: -func fetchNearByPlaces()
@@ -71,6 +102,7 @@ extension ListSearchViewController {
         AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: headers)
             .validate() // added validation
             .responseDecodable(of: Place.self) { response in
+                debugPrint(response)
                 guard let place = response.value else { return }
                 self.resultPlace = place.results
                 DispatchQueue.main.async {

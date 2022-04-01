@@ -13,6 +13,7 @@
                 <outlet property="addressLabel" destination="KFg-d5-xbi" id="OXk-r2-u6u"/>
                 <outlet property="emailLabel" destination="zWJ-nR-nXU" id="fUh-su-i4b"/>
                 <outlet property="genderLabel" destination="kIn-8B-Ovs" id="9eE-11-RQa"/>
+                <outlet property="idLabel" destination="XQj-HM-kTm" id="ati-aI-df9"/>
                 <outlet property="imageUserImageView" destination="PML-wk-Ri8" id="zhC-1U-IxB"/>
                 <outlet property="logOutBtn" destination="7qw-Kv-1vQ" id="zOb-0E-fs7"/>
                 <outlet property="phoneLabel" destination="LB6-Pd-RnT" id="tWF-mO-YIK"/>
@@ -44,10 +45,9 @@
                                         <constraint firstAttribute="height" constant="100" id="vcJ-Fc-YUh"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQj-HM-kTm">
-                                    <rect key="frame" x="182" y="172" width="26" height="12"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQj-HM-kTm">
+                                    <rect key="frame" x="189.33333333333334" y="174" width="11.666666666666657" height="14.333333333333343"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -59,6 +59,7 @@
                                 <constraint firstItem="PML-wk-Ri8" firstAttribute="top" secondItem="XMg-VW-pHJ" secondAttribute="top" constant="30" id="TIt-vQ-bud"/>
                                 <constraint firstItem="BDU-LC-bva" firstAttribute="centerX" secondItem="XMg-VW-pHJ" secondAttribute="centerX" id="erb-Na-fnb"/>
                                 <constraint firstItem="BDU-LC-bva" firstAttribute="top" secondItem="PML-wk-Ri8" secondAttribute="bottom" constant="15" id="oaE-Vu-CDw"/>
+                                <constraint firstItem="XQj-HM-kTm" firstAttribute="top" secondItem="BDU-LC-bva" secondAttribute="bottom" constant="5" id="p6a-yn-erH"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qw-Kv-1vQ">
@@ -92,7 +93,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIn-8B-Ovs">
                                                     <rect key="frame" x="42" y="0.0" width="308" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -117,7 +118,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWJ-nR-nXU">
                                                     <rect key="frame" x="42" y="0.0" width="308" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -142,7 +143,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LB6-Pd-RnT">
                                                     <rect key="frame" x="42" y="0.0" width="308" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -167,7 +168,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFg-d5-xbi">
                                                     <rect key="frame" x="42" y="0.0" width="308" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" systemColor="opaqueSeparatorColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -187,6 +188,7 @@
                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                     <constraints>
                         <constraint firstItem="lMU-4B-SmH" firstAttribute="leading" secondItem="aza-uD-LbK" secondAttribute="leading" id="Hih-Qj-tn9"/>
+                        <constraint firstItem="XQj-HM-kTm" firstAttribute="centerX" secondItem="aza-uD-LbK" secondAttribute="centerX" id="Svk-AZ-UDL"/>
                         <constraint firstAttribute="trailing" secondItem="XMg-VW-pHJ" secondAttribute="trailing" id="Xdn-Sn-h60"/>
                         <constraint firstAttribute="trailing" secondItem="lMU-4B-SmH" secondAttribute="trailing" id="d9I-yd-Ifb"/>
                         <constraint firstAttribute="trailing" secondItem="7qw-Kv-1vQ" secondAttribute="trailing" constant="30" id="hsB-PK-2RC"/>
@@ -215,6 +217,9 @@
         <image name="male-and-female" width="32" height="32"/>
         <image name="phone-call" width="32" height="32"/>
         <image name="user" width="128" height="128"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

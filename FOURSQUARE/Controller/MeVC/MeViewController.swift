@@ -12,20 +12,18 @@ class MeViewController: UIViewController {
 
 
     @IBOutlet weak var imageUserImageView: UIImageView!
-
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-
-
+    @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var logOutBtn: UIButton!
-    //@IBOutlet weak var messageLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Profile"
-        //updateMessage(with: Profile.current?.name)
+
         updateButton(isLoggedIn: (AccessToken.current != nil))
 
         getUserProfile(token: AccessToken.current, userId: AccessToken.current?.userID)
@@ -36,9 +34,11 @@ class MeViewController: UIViewController {
         if let _ = AccessToken.current {
             loginManager.logOut()
             UserDefaults.standard.set(false, forKey: "isLogin")
+            print(UserDefaults.standard.bool(forKey: "isLogin"))
             (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MeLoginViewController(), loginVC: true)
         } else {
             //TODO
+            UserDefaults.standard.set(true, forKey: "isLogin")
             (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MeLoginViewController(), loginVC: true)
         }
     }
@@ -47,7 +47,6 @@ class MeViewController: UIViewController {
 
 extension MeViewController {
     private func updateMessage(with name: String?) {
-        // 2
         guard let name = name else {
             // User already logged out
             userName.text = "User name"
@@ -73,6 +72,7 @@ extension MeViewController {
                     // Facebook Id
                     if let facebookId = data["id"] as? String {
                         print("Facebook Id: \(facebookId)")
+                        self.idLabel.text = facebookId
                     } else {
                         print("Facebook Id: Not exists")
                     }
@@ -114,20 +114,12 @@ extension MeViewController {
                     if let facebookEmail = data["email"] as? String {
                         print("Facebook Email: \(facebookEmail)")
                         self.emailLabel.text = facebookEmail
+                        self.emailLabel.textColor = .black
                     } else {
                         print("Facebook Email: Not exists")
                     }
-
-                    // Facebook Email
-//                    if let facebookGender = data["gender"] as? String {
-//                        print("Facebook Gender: \(facebookGender)")
-//                        self.genderLabel.text = facebookGender
-//                    } else {
-//                        print("Facebook Email: Not exists")
-//                    }
-
-
-                    print("Facebook Access Token: \(AccessToken.current)")
+                    
+                    print("Facebook Access Token: \(AccessToken.current!)")
                 } else {
                     print("Error: Trying to get user's info")
                 }

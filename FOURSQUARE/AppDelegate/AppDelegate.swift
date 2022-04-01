@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
         window = UIWindow(frame: UIScreen.main.bounds)
-
         //if user is logges in before
         if UserDefaults.standard.bool(forKey: "isLogin") {
             window?.rootViewController = MainTabBarController()
@@ -62,7 +61,6 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         self.tabBar.backgroundColor = .white
-
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage.init(systemName: "house"), tag: 0)
 
@@ -75,8 +73,6 @@ class MainTabBarController: UITabBarController {
         let meVC = UINavigationController(rootViewController: MeViewController())
         meVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
 
-            setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
+        setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
     }
 }
-
-

@@ -16,24 +16,32 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         title = "Search"
 
-        //Cònig Navigation Bar Item
-        navBarItemConfig()
-
         //searchController
+        configSearchController()
+
+        //tableView
+        configTableView()
+    }
+
+    //Configure searchController
+    func configSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.delegate = self
+    }
 
-        //tableView
+    //Configure tableView
+    func configTableView() {
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
     }
+
 
     func navBarItemConfig() {
         navigationController?.navigationBar.backgroundColor = .white
@@ -51,8 +59,6 @@ class SearchViewController: UIViewController {
         })
         tableView.reloadData()
     }
-
-
 }
 //MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {

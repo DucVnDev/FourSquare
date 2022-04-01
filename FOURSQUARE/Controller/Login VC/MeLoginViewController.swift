@@ -26,9 +26,7 @@ class MeLoginViewController: UIViewController {
     }
 
     @IBAction func skipBtnDidTap(_ sender: Any) {
-
-        self.userDefault.set(true, forKey: "isLogin")
-        //Change Root ViewController
+        self.userDefault.set(false, forKey: "isLogin")
         (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MainTabBarController(), loginVC: false)
     }
 
@@ -114,13 +112,6 @@ extension MeLoginViewController {
                     } else {
                         print("Facebook Email: Not exists")
                     }
-
-//                    // Facebook Email
-//                    if let facebookPhone = data["phone"] as? String {
-//                        print("Facebook Phone: \(facebookPhone)")
-//                    } else {
-//                        print("Facebook Phone: Not exists")
-//                    }
 
                     print("Facebook Access Token: \(token?.tokenString ?? "")")
                 } else {

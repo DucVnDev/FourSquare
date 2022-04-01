@@ -49,7 +49,6 @@ class MapingViewController: UIViewController {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         annotation.title = "Point 001"
-        //annotation.subtitle = "Subtitle 001"
         mapView.addAnnotation(annotation)
     }
 
@@ -89,10 +88,10 @@ extension MapingViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             print(location.coordinate)
             manager.stopUpdatingLocation()
-            //let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-            //let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
             mapView.showsUserLocation = true
-            //mapView.setRegion(region, animated: true)
+            mapView.setRegion(region, animated: true)
         }
     }
 }
