@@ -10,15 +10,6 @@ import Alamofire
 import SDWebImage
 import RealmSwift
 
-struct PlaceDetailViewMode {
-    var id: String
-    var name: String
-    var address: String
-    var category: String
-    var latidute: Double
-    var longitude: Double
-}
-
 class DetailPlaceInfoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,36 +20,32 @@ class DetailPlaceInfoViewController: UIViewController {
 
     var favouriteButton = UIBarButtonItem()
 
+    //Realm Database
     var realm = try! Realm()
-    var place = try! Realm().objects(FavoritePlacesItem.self)
+    var place = try! Realm().objects(FavouritePlacesItem.self)
     var isLike: Bool = false
+
+    //NetworkingAPI
+    var networkingApi = NetworkingAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Detail Place"
 
+        //NagivationBar Configure
+        navBarItemConfig()
+
         //Collectionview
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "InfoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "InfoPlaceCell")
-        collectionView.register(UINib(nibName: "PhotoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "PhotoPlaceCell")
-        collectionView.register(UINib(nibName: "TipPlaceCell", bundle: .main), forCellWithReuseIdentifier: "TipPlaceCell")
-
-        //register Header
-        collectionView.register(UINib(nibName: "PlaceDetailCollectionReusableView", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView")
-        collectionView.register(UINib(nibName: "HeaderSectionPlaceDetailCell", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell")
-
-        //Realm
-        let path = realm.configuration.fileURL!.path
-        //print("Path: \(String(describing: path))")
-
-        //NagivationBar Configure
-        navBarItemConfig()
-        print("Is Like viewDidLoad: \(isLike)")
+        registerXib()
 
         //Load API
-        fetchPhotoWith(fsqID: self.infoDetailPlace.id)
-        fetchTipsWith(fsqID: self.infoDetailPlace.id)
+        //fetchPhotoWith(fsqID: self.infoDetailPlace.id)
+        //fetchTipsWith(fsqID: self.infoDetailPlace.id)
+
+        fetchPhoto(fsqID: self.infoDetailPlace.id)
+        fetchTip(fsqID: self.infoDetailPlace.id)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +65,7 @@ class DetailPlaceInfoViewController: UIViewController {
         }
     }
 
-    func navBarItemConfig() {
+    private func navBarItemConfig() {
         if place.isEmpty {
             favouriteButton = UIBarButtonItem(image: UIImage.init(systemName: "heart"), style: .plain, target: self, action: #selector(favouriteAction))
             navigationItem.rightBarButtonItem = favouriteButton
@@ -86,7 +73,7 @@ class DetailPlaceInfoViewController: UIViewController {
             //var hasId: Bool = false
             for i in 0...(place.count-1) {
                 if place[i].id == infoDetailPlace.id {
-                    isLike = !isLike  //true
+                    isLike = true  //true
                 }
             }
             if isLike {
@@ -118,7 +105,7 @@ class DetailPlaceInfoViewController: UIViewController {
             favouriteButton.image = UIImage.init(systemName: "heart")
             isLike = !isLike //false
         } else {
-            let newPlace = FavoritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category, latitude: infoDetailPlace.latidute, longitude: infoDetailPlace.longitude)
+            let newPlace = FavouritePlacesItem(id: infoDetailPlace.id, name: infoDetailPlace.name, address: infoDetailPlace.address, category: infoDetailPlace.category, latitude: infoDetailPlace.latidute, longitude: infoDetailPlace.longitude)
             do {
                 try! self.realm.write({
                     self.realm.add(newPlace)
@@ -129,6 +116,20 @@ class DetailPlaceInfoViewController: UIViewController {
             favouriteButton.image = UIImage.init(systemName: "heart.fill")
             isLike = !isLike //true
         }
+    }
+
+    private func registerXib() {
+
+        //register Cell
+        collectionView.register(UINib(nibName: "InfoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "InfoPlaceCell")
+        collectionView.register(UINib(nibName: "PhotoPlaceCell", bundle: .main), forCellWithReuseIdentifier: "PhotoPlaceCell")
+        collectionView.register(UINib(nibName: "TipPlaceCell", bundle: .main), forCellWithReuseIdentifier: "TipPlaceCell")
+
+        //register Header
+        collectionView.register(UINib(nibName: "PlaceDetailCollectionReusableView", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "PlaceDetailCollectionReusableView")
+        collectionView.register(UINib(nibName: "HeaderSectionPlaceDetailCell", bundle: .main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSectionPlaceDetailCell")
+
+
     }
 }
 
@@ -287,16 +288,8 @@ extension DetailPlaceInfoViewController: UICollectionViewDelegateFlowLayout {
 }
 //MARK: -LOAD API
 extension DetailPlaceInfoViewController {
-    func fetchPhotoWith(fsqID: String) {
-        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/photos"
-        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                    .accept("application/json")]
-        AF.request(urlString,
-                   method: .get,
-                   headers: headers)
-        .validate()
-        .responseDecodable(of: [PlacePhotoElement].self) { responseData in
-            guard let data = responseData.value else { return }
+    private func fetchPhoto(fsqID: String) {
+        networkingApi.fetchPhotoWith(fsqID: fsqID) { data in
             if data.count != 0 {
                 for i in 0...(data.count-1) {
                     let prefix = data[i].placePhotoPrefix
@@ -311,16 +304,8 @@ extension DetailPlaceInfoViewController {
         }
     }
 
-    func fetchTipsWith(fsqID: String) {
-        let urlString: String = "https://api.foursquare.com/v3/places/\(fsqID)/tips"
-        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                    .accept("application/json")]
-        AF.request(urlString,
-                   method: .get,
-                   headers: headers)
-        .validate()
-        .responseDecodable(of: [PlaceTipElement].self) { responseData in
-            guard let data = responseData.value else { return }
+    private func fetchTip(fsqID: String) {
+        networkingApi.fetchTipsWith(fsqID: fsqID) { data in
             if data.count != 0 {
                 for i in 0...(data.count-1) {
                     let tip = data[i].text
@@ -334,6 +319,7 @@ extension DetailPlaceInfoViewController {
     }
 }
 
+//MARK: -DetailPlaceInfoViewController: InfoPlaceCellDelegate
 extension DetailPlaceInfoViewController: InfoPlaceCellDelegate {
     func InfoPlaceCellDelegate(viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)

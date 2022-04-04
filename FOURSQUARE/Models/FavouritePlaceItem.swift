@@ -1,7 +1,7 @@
 import Foundation
 import RealmSwift
 
-class FavoritePlacesItem: Object {
+class FavouritePlacesItem: Object {
     @Persisted(primaryKey: true) var id: String = ""
     @Persisted var name: String?
     @Persisted var address: String?

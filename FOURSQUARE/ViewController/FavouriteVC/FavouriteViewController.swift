@@ -16,7 +16,7 @@ class FavouriteViewController: UIViewController {
     var detailPlace : [Result] = []
 
     var realm = try! Realm()
-    var place = try! Realm().objects(FavoritePlacesItem.self)
+    var place = try! Realm().objects(FavouritePlacesItem.self)
     var rightButton = UIBarButtonItem()
 
     override func viewDidLoad() {
@@ -45,6 +45,8 @@ class FavouriteViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.reloadData()
         if realm.isEmpty {
             navigationItem.rightBarButtonItem?.isEnabled = false
@@ -70,24 +72,23 @@ class FavouriteViewController: UIViewController {
         navigationItem.rightBarButtonItem?.title = ""
     }
 }
-//MARK: -ListSearchViewController: UITableViewDelegate, UITableViewDataSource
+//MARK: -FavouriteViewController: UITableViewDelegate, UITableViewDataSource
 extension FavouriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return place.count
     }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 80
-//    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceTableViewCell", for: indexPath) as! PlaceTableViewCell
         let idPlace = place[indexPath.row].id
-        cell.updateWithId(id: idPlace, indexPath: indexPath.row)
+        cell.updateWith(id: idPlace, indexPath: indexPath.row)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailPlaceInfoViewController()
         vc.infoDetailPlace = PlaceDetailViewMode(id: place[indexPath.row].id, name: place[indexPath.row].name ?? "", address: place[indexPath.row].address ?? "", category: place[indexPath.row].category ?? "", latidute: place[indexPath.row].latitude ?? 0, longitude: place[indexPath.row].longitude ?? 0)
+        vc.isLike = true
         self.navigationController?.pushViewController(vc, animated: true)
+
     }
 }

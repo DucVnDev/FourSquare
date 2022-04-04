@@ -1,8 +1,3 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let place = try? newJSONDecoder().decode(Place.self, from: jsonData)
-
 import Foundation
 
 // MARK: - Place
@@ -105,6 +100,7 @@ struct Parent: Codable {
 enum Timezone: String, Codable {
     case asiaHoChiMinh = "Asia/Ho_Chi_Minh"
 }
+
 
 // MARK: - Encode/decode helpers
 

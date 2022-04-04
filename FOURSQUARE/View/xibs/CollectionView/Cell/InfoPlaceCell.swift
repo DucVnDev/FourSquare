@@ -35,6 +35,5 @@ class InfoPlaceCell: UICollectionViewCell {
         mapVC.longitude = self.longitude!
         mapVC.titlePin = self.name
         delegate?.InfoPlaceCellDelegate(viewController: mapVC)
-
     }
 }

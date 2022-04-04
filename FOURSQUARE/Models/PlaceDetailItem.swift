@@ -5,8 +5,8 @@
 
 import Foundation
 
-// MARK: - DetailPlace
-struct DetailPlace: Codable {
+// MARK: - PlaceDetailItem
+struct PlaceDetailItem: Codable {
     let fsqID: String
     let categories: [Category]
     let chains: [JSONAny]
@@ -22,4 +22,13 @@ struct DetailPlace: Codable {
         case relatedPlaces = "related_places"
         case timezone
     }
+}
+// MARK: - PlaceDetailViewMode
+struct PlaceDetailViewMode {
+    var id: String
+    var name: String
+    var address: String
+    var category: String
+    var latidute: Double
+    var longitude: Double
 }

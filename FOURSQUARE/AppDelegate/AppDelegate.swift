@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         } else {
             //if user isn't logged in
-            let vc = MeLoginViewController()
+            let vc = LoginViewController()
             window?.rootViewController = UINavigationController(rootViewController: vc)
             window?.makeKeyAndVisible()
         }
@@ -61,7 +61,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
 
         self.tabBar.backgroundColor = .white
-        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        let homeVC = UINavigationController(rootViewController: ListViewController())
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage.init(systemName: "house"), tag: 0)
 
         let searchVC = UINavigationController(rootViewController: SearchViewController())
@@ -70,9 +70,9 @@ class MainTabBarController: UITabBarController {
         let favVC = UINavigationController(rootViewController: FavouriteViewController())
         favVC.tabBarItem = UITabBarItem(title: "Favourite", image: UIImage.init(systemName: "menucard.fill"), tag: 0)
 
-        let meVC = UINavigationController(rootViewController: MeViewController())
-        meVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
+        let profileVC = UINavigationController(rootViewController: ProfileViewController())
+        profileVC.tabBarItem = UITabBarItem(title: "Me", image: UIImage.init(systemName: "person.crop.rectangle.fill"), tag: 0)
 
-        setViewControllers([homeVC, searchVC, favVC, meVC], animated: true)
+        setViewControllers([homeVC, searchVC, favVC, profileVC], animated: true)
     }
 }

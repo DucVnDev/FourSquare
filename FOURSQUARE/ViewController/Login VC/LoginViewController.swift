@@ -8,7 +8,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class MeLoginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var viewWelcome: UIView!
     @IBOutlet weak var loginFbBtn: UIButton!
@@ -35,7 +35,7 @@ class MeLoginViewController: UIViewController {
     }
 }
 
-extension MeLoginViewController {
+extension LoginViewController {
 
     func loginBtnClicked() {
         let loginManager = LoginManager()

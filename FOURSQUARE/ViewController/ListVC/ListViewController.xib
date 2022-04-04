@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListSearchViewController" customModule="FOURSQUARE" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="FOURSQUARE" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="2EV-n4-I4y" id="0zZ-qE-Grh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,7 +32,7 @@
                 <constraint firstItem="2EV-n4-I4y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XuZ-Rc-AD7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2EV-n4-I4y" secondAttribute="trailing" id="phW-os-niH"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="79"/>
+            <point key="canvasLocation" x="131.8840579710145" y="78.348214285714278"/>
         </view>
     </objects>
     <resources>

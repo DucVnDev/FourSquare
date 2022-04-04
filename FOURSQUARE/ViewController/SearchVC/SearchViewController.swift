@@ -1,5 +1,5 @@
 import UIKit
-import Alamofire //1
+import Alamofire
 import CoreLocation
 
 class SearchViewController: UIViewController {
@@ -11,20 +11,21 @@ class SearchViewController: UIViewController {
     var filterPlaces : [Result] = []
 
     var manager = CLLocationManager()
+    var networkingApi = NetworkingAPI()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Search"
 
         //searchController
-        configSearchController()
+        setupSearchController()
 
         //tableView
-        configTableView()
+        setupTableView()
     }
 
     //Configure searchController
-    func configSearchController() {
+    private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
@@ -34,7 +35,7 @@ class SearchViewController: UIViewController {
     }
 
     //Configure tableView
-    func configTableView() {
+    private func setupTableView() {
         tableView.register(UINib(nibName: "PlaceTableViewCell", bundle: .main), forCellReuseIdentifier: "PlaceTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,7 +44,7 @@ class SearchViewController: UIViewController {
     }
 
 
-    func navBarItemConfig() {
+    private func navBarItemConfig() {
         navigationController?.navigationBar.backgroundColor = .white
         let rightButton = UIBarButtonItem(image: UIImage.init(systemName: "map"), style: .plain, target: self, action: #selector(rightAction))
         navigationItem.rightBarButtonItem = rightButton
@@ -76,7 +77,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         if searchController.isActive && searchController.searchBar.text != nil {
             let item = filterPlaces[indexPath.row]
             let cellViewModel = PlaceTableViewCellViewModel(fsqID: item.fsqID, indexPath: String(indexPath.row + 1), title: item.name, subtitle: item.categories.first?.name ?? "", distance: Double(item.distance), locality: item.location.locality ?? "", desc: "", imgURL: item.imgURLString)
-            cell.updateWith(cellViewModel)
+            cell.updateCellWith(cellViewModel)
         }
         return cell
     }
@@ -97,48 +98,30 @@ extension SearchViewController: UISearchResultsUpdating{
         filterContentForSearchText(searchController.searchBar.text!)
         //Get my Location
         guard let sourceCoordinate = manager.location?.coordinate else { return }
-        //print(sourceCoordinate.latitude, sourceCoordinate.longitude)
 
         //Load API nearby Place
-        fetchNearByPlaces(latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
-
-        //Load API Autocomplete
-        //fetchSearchPlaces(query: searchController.searchBar.text!, latitude: String(sourceCoordinate.latitude), longitude: String(sourceCoordinate.longitude))
+        fetchNearByPlace(latitude: sourceCoordinate.latitude, longitude: sourceCoordinate.longitude)
     }
 }
 
 //MARK: - SearchViewController: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //TODO
-    }
-
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchController.searchBar.text = nil
         searchController.searchBar.resignFirstResponder()
         tableView.reloadData()
     }
-
-
 }
 
-//MARK: -ListSearchViewController API
+//MARK: -SearchViewController: Load API
 extension SearchViewController {
-    //MARK: -func fetchNearByPlaces()
-    func fetchNearByPlaces(latitude: String, longitude: String){
-        let parameters = ["ll" : "\(latitude),\(longitude)"] //Lat, Long of Da Nang
-        let headers: HTTPHeaders = [.authorization("fsq3bLyHTk3rptYmDCK2UC6COiqhyPlEkIqotgeQnebJB48="),
-                                    .accept("application/json")]
-
-        AF.request("https://api.foursquare.com/v3/places/nearby",parameters: parameters,headers: headers)
-            .validate() // added validation
-            .responseDecodable(of: Place.self) { response in
-                guard let place = response.value else { return }
-                self.resultPlace = place.results
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+    func fetchNearByPlace(latitude: Double, longitude: Double) {
+        networkingApi.fetchNearByPlaces(latitude: latitude, longitude: longitude) { data in
+            self.resultPlace = data
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
+        }
     }
 }
 

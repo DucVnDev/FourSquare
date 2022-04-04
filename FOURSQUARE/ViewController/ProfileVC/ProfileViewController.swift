@@ -1,14 +1,7 @@
-//
-//  MeViewController.swift
-//  FOURSQUARE
-//
-//  Created by Van Ngoc Duc on 02/03/2022.
-//
-
 import UIKit
 import FBSDKLoginKit
 
-class MeViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
 
     @IBOutlet weak var imageUserImageView: UIImageView!
@@ -35,17 +28,17 @@ class MeViewController: UIViewController {
             loginManager.logOut()
             UserDefaults.standard.set(false, forKey: "isLogin")
             print(UserDefaults.standard.bool(forKey: "isLogin"))
-            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MeLoginViewController(), loginVC: true)
+            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(LoginViewController(), loginVC: true)
         } else {
             //TODO
             UserDefaults.standard.set(true, forKey: "isLogin")
-            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(MeLoginViewController(), loginVC: true)
+            (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(LoginViewController(), loginVC: true)
         }
     }
 
 }
 
-extension MeViewController {
+extension ProfileViewController {
     private func updateMessage(with name: String?) {
         guard let name = name else {
             // User already logged out

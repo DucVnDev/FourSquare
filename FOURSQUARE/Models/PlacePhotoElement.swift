@@ -1,10 +1,5 @@
 import Foundation
 
-//// MARK: - PlacePhoto
-//struct PlacePhoto: Codable {
-//    let results: [PlacePhotoElement]
-//}
-
 // MARK: - PlacePhotoElement
 struct PlacePhotoElement: Decodable {
     let id, createdAt: String
